@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MakerConnect 2026 — SP FabLab Maker Education Network</title>
+<meta name="description" content="The SP FabLab Maker Education Network connects Singapore schools with tools, expertise, and community to build hands-on, design-based learning."/>
+<meta name="keywords" content="SP FabLab, Maker Education, Singapore Polytechnic, MakerConnect, Learning Node, Learning Nexus, digital fabrication"/>
+<meta name="author" content="SP FabLab, Singapore Polytechnic"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://sp-fablab.github.io/makerconnect/"/>
+<meta property="og:title" content="MakerConnect 2026 — SP FabLab Maker Education Network"/>
+<meta property="og:description" content="Connecting Singapore schools with tools, expertise, and community to build hands-on, design-based learning."/>
+<meta property="og:image" content="images/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:site_name" content="MakerConnect 2026"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="MakerConnect 2026 — SP FabLab Maker Education Network"/>
+<meta name="twitter:description" content="Connecting Singapore schools with tools, expertise, and community to build hands-on, design-based learning."/>
+<meta name="twitter:image" content="images/og-image.jpg"/>
+<link rel="icon" type="image/png" href="images/favicon-sp.png"/>
+<link rel="canonical" href="https://sp-fablab.github.io/makerconnect/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* ── TOKENS ── */
+:root {
+  --red:       #D0021B;
+  --red-dark:  #A80016;
+  --red-glow:  rgba(208,2,27,0.18);
+  --amber:     #F5A000;
+  --navy:      #1A2E5A;
+  --dark:      #0D1B2A;
+  --dark-2:    #112233;
+  --dark-3:    #162840;
+  --mid:       #1E3A50;
+  --light-bg:  #F2F4F6;
+  --white:     #FFFFFF;
+  --text-dim:  rgba(255,255,255,0.62);
+  --text-muted:rgba(255,255,255,0.38);
+  --border:    rgba(255,255,255,0.08);
+  --font:      'Outfit', sans-serif;
+  --font-serif:'Lora', Georgia, serif;
+  --r:         14px;
+  --r-sm:      8px;
+  --container: 1180px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--dark);color:var(--white);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+
+/* ── NAV ── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:0 2rem;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .35s, box-shadow .35s;
+}
+#nav.scrolled{
+  background:rgba(13,27,42,0.96);
+  backdrop-filter:blur(16px);
+  box-shadow:0 1px 0 var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:.75rem}
+.nav-logo-mark{
+  width:42px;height:42px;background:var(--red);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.58rem;font-weight:800;letter-spacing:.06em;
+  color:white;line-height:1.1;text-align:center;
+  flex-shrink:0;
+}
+.nav-logo-name{font-size:1.1rem;font-weight:700;color:var(--white)}
+.nav-logo-name span{color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
+.nav-links a{
+  padding:.5rem 1rem;font-size:.88rem;font-weight:500;
+  color:rgba(255,255,255,.7);border-radius:6px;
+  transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-links a.active{color:var(--white)}
+.nav-cta{
+  background:var(--red)!important;color:white!important;
+  padding:.52rem 1.35rem!important;border-radius:30px!important;
+  font-weight:600!important;font-size:.88rem!important;
+  transition:background .2s, transform .15s !important;
+}
+.nav-cta:hover{background:var(--red-dark)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{width:22px;height:2px;background:white;border-radius:2px;transition:all .3s}
+.mobile-nav{display:none;flex-direction:column;background:var(--dark-2);border-top:1px solid var(--border)}
+.mobile-nav.open{display:flex}
+.mobile-nav a{padding:1rem 2rem;font-size:.95rem;font-weight:500;color:rgba(255,255,255,.8);border-bottom:1px solid var(--border)}
+.mobile-nav a:hover{color:white;background:rgba(255,255,255,.04)}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:7rem 2rem 5rem;
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(208,2,27,.18) 0%, transparent 65%),
+             url('images/hero-bg.jpg') center/cover no-repeat,
+             var(--dark);
+}
+.hero-grid-bg{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 90% 80% at 50% 0%, black 40%, transparent 100%);
+}
+.hero-inner{position:relative;z-index:1;max-width:820px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(208,2,27,.15);border:1px solid rgba(208,2,27,.3);
+  color:var(--red);border-radius:30px;
+  padding:.4rem 1.1rem;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:2rem;
+}
+.hero-eyebrow-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-h1{
+  font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:1.05;
+  letter-spacing:-.02em;margin-bottom:1.5rem;
+}
+.hero-h1 .accent{color:var(--red)}
+.hero-h1 .serif{font-family:var(--font-serif);font-weight:400;font-style:italic;color:rgba(255,255,255,.75)}
+.hero-sub{
+  font-size:1.1rem;color:var(--text-dim);line-height:1.75;
+  max-width:560px;margin:0 auto 2.5rem;
+}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-solid{
+  background:var(--red);color:white;padding:.85rem 2.2rem;
+  border-radius:40px;font-weight:700;font-size:.95rem;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 0 0 0 rgba(208,2,27,0);
+}
+.btn-solid:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(208,2,27,.35)}
+.btn-ghost{
+  background:transparent;color:white;padding:.85rem 2.2rem;
+  border-radius:40px;font-weight:600;font-size:.95rem;
+  border:1.5px solid rgba(255,255,255,.3);
+  transition:border-color .2s,background .2s,transform .15s;
+}
+.btn-ghost:hover{border-color:white;background:rgba(255,255,255,.06);transform:translateY(-2px)}
+.hero-stats{
+  display:flex;gap:0;margin-top:5rem;
+  border:1px solid var(--border);border-radius:var(--r);
+  background:rgba(255,255,255,.03);backdrop-filter:blur(8px);
+  overflow:hidden;flex-wrap:wrap;
+}
+.hero-stat{
+  flex:1;min-width:140px;padding:1.5rem 1rem;text-align:center;
+  border-right:1px solid var(--border);
+}
+.hero-stat:last-child{border-right:none}
+.hero-stat-num{font-size:2rem;font-weight:800;color:white;letter-spacing:-.02em}
+.hero-stat-num sup{font-size:1.1rem;font-weight:600}
+.hero-stat-label{font-size:.75rem;color:var(--text-muted);margin-top:.3rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+
+/* ── CHEVRON BANNER ── */
+.chevron-banner{
+  position:relative;overflow:hidden;
+  background:var(--dark-2);
+  padding:3.5rem 0;
+}
+.chevron-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 40px,
+      rgba(208,2,27,.08) 40px,
+      rgba(208,2,27,.08) 42px
+    );
+}
+.chevron-content{
+  position:relative;z-index:1;
+  max-width:var(--container);margin:0 auto;padding:0 2rem;
+  display:flex;align-items:center;gap:2rem;flex-wrap:wrap;
+}
+.chevron-logo{
+  display:flex;align-items:center;gap:1rem;
+}
+.chevron-logo-mark{
+  width:64px;height:64px;background:var(--red);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:800;color:white;text-align:center;line-height:1.1;
+  letter-spacing:.04em;flex-shrink:0;
+}
+.chevron-tagline{
+  font-size:clamp(1.8rem,4vw,3rem);font-weight:900;letter-spacing:-.02em;color:white;
+}
+.chevron-tagline .red{color:var(--red)}
+.chevron-sub{font-size:.95rem;color:var(--text-dim);margin-top:.35rem;font-weight:400}
+.chevron-divider{flex:1;min-width:2rem;height:1px;background:var(--border)}
+.chevron-cta{
+  font-size:.82rem;font-weight:600;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;
+}
+.chevron-cta span{color:var(--red)}
+
+/* ── SECTION SHARED ── */
+.section{padding:6rem 0}
+.section-light{background:var(--light-bg);color:#111}
+.section-dark{background:var(--dark-2)}
+.section-darker{background:var(--dark)}
+.container{max-width:var(--container);margin:0 auto;padding:0 2rem}
+.section-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);margin-bottom:1rem;
+}
+.section-tag::before{content:'';width:20px;height:2px;background:var(--red)}
+.section-h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:1rem}
+.section-lead{font-size:1.05rem;line-height:1.75;color:var(--text-dim);max-width:600px}
+.section-light .section-lead{color:#555}
+.section-light .section-tag{color:var(--red)}
+.section-light .section-h2{color:#111}
+
+/* ── ABOUT SPLIT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-text .section-h2{color:white}
+.about-text p{font-size:.95rem;color:var(--text-dim);line-height:1.8;margin-top:1.25rem}
+.about-pills{display:flex;flex-direction:column;gap:.75rem;margin-top:2rem}
+.about-pill{
+  display:flex;align-items:flex-start;gap:.85rem;
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:1rem 1.25rem;
+}
+.about-pill-icon{
+  width:36px;height:36px;background:var(--red-glow);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;border:1px solid rgba(208,2,27,.2);
+}
+.about-pill-text h4{font-size:.92rem;font-weight:700;color:white;margin-bottom:.2rem}
+.about-pill-text p{font-size:.84rem;color:var(--text-dim);line-height:1.55;margin:0}
+.about-img-wrap{position:relative}
+.about-img-main{
+  width:100%;aspect-ratio:4/3;
+  background:url('images/about-fablab.jpg') center/cover no-repeat,var(--mid);border-radius:20px;overflow:hidden;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-img-main::after{content:none}
+.about-img-badge{
+  position:absolute;bottom:-20px;left:-20px;
+  background:var(--red);border-radius:12px;padding:1.25rem 1.5rem;
+  box-shadow:0 12px 40px rgba(208,2,27,.4);
+}
+.about-img-badge strong{font-size:1.6rem;font-weight:800;display:block;color:white}
+.about-img-badge span{font-size:.75rem;color:rgba(255,255,255,.7);font-weight:500}
+.about-img-float{
+  position:absolute;top:-16px;right:-16px;
+  background:var(--dark-3);border:1px solid var(--border);border-radius:10px;
+  padding:1rem 1.25rem;
+}
+.about-img-float p{font-size:.78rem;color:var(--text-dim);margin:0}
+.about-img-float strong{font-size:.88rem;color:white;display:block;margin-bottom:.15rem}
+
+/* ── FEATURE CARDS (3-col) ── */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.feature-card{border-radius:var(--r);overflow:hidden;background:white;transition:transform .25s,box-shadow .25s}
+.feature-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.12)}
+.feature-card-img{
+  width:100%;aspect-ratio:16/10;
+  background:var(--mid);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  font-size:.78rem;color:rgba(255,255,255,.3);letter-spacing:.04em;
+}
+.feature-card-img.img-1{background:url('images/feature-students.jpg') center/cover no-repeat,linear-gradient(135deg,#1a3a5c,#2a5a8c)}
+.feature-card-img.img-2{background:url('images/feature-teachers.jpg') center/cover no-repeat,linear-gradient(135deg,#2c1a1a,#6b2020)}
+.feature-card-img.img-3{background:url('images/feature-makerspace.jpg') center/cover no-repeat,linear-gradient(135deg,#1a2c1a,#2a5a2a)}
+.feature-card-img::after{
+  content:attr(data-label);
+  position:absolute;bottom:12px;left:12px;
+  background:rgba(0,0,0,.5);padding:.3rem .7rem;border-radius:4px;
+  font-size:.7rem;color:rgba(255,255,255,.6);backdrop-filter:blur(4px);
+}
+.feature-card-body{padding:1.5rem}
+.feature-card-body h3{font-size:1.05rem;font-weight:700;color:#111;margin-bottom:.5rem}
+.feature-card-body p{font-size:.875rem;color:#555;line-height:1.65}
+
+/* ── TIER CARDS (2-col, dark) ── */
+.tiers-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3.5rem}
+.tier-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);transition:border-color .25s,transform .25s}
+.tier-card:hover{border-color:rgba(255,255,255,.18);transform:translateY(-3px)}
+.tier-card-head{padding:2rem}
+.tier-card-head.node{background:linear-gradient(135deg,#7A4F00,var(--amber))}
+.tier-card-head.nexus{background:linear-gradient(135deg,#0d1e3d,var(--navy))}
+.tier-tag{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-bottom:.5rem}
+.tier-name{font-size:2rem;font-weight:800;line-height:1.1;margin-bottom:.5rem}
+.tier-node .tier-name{color:#fff}
+.tier-nexus .tier-name{color:#fff}
+.tier-desc{font-size:.88rem;opacity:.75;line-height:1.55}
+.tier-body{padding:1.75rem 2rem;background:rgba(255,255,255,.03)}
+.tier-section-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.6rem;margin-top:1.1rem}
+.tier-section-label:first-child{margin-top:0}
+.tier-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:.45rem}
+.tier-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;color:rgba(255,255,255,.7);line-height:1.55}
+.tier-list li::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.tier-list.amber li::before{background:var(--amber)}
+.tier-list.navy li::before{background:#6B9FEF}
+.tier-commit{
+  margin-top:1.5rem;padding:.9rem 1rem;border-radius:8px;font-size:.84rem;line-height:1.55;
+  border-left:3px solid;
+}
+.tier-commit.node{background:rgba(245,160,0,.1);border-color:var(--amber);color:rgba(255,220,130,.85)}
+.tier-commit.nexus{background:rgba(107,159,239,.1);border-color:#6B9FEF;color:rgba(150,190,255,.85)}
+
+/* ── PROGRAMMES ── */
+.prog-switcher{display:flex;gap:.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.prog-btn{
+  padding:.55rem 1.25rem;border-radius:30px;font-size:.85rem;font-weight:600;
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);
+  border:1px solid rgba(255,255,255,.1);cursor:pointer;
+  font-family:var(--font);transition:all .2s;
+}
+.prog-btn:hover{background:rgba(255,255,255,.1);color:white}
+.prog-btn.active{background:var(--red);color:white;border-color:var(--red)}
+.prog-panel{display:none}.prog-panel.active{display:block}
+.model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem}
+.model-card{border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.03)}
+.model-head{padding:1.1rem 1.25rem}
+.m-a{background:linear-gradient(135deg,#8B0010,var(--red))}
+.m-b{background:linear-gradient(135deg,#6B0010,#A80016)}
+.m-c{background:linear-gradient(135deg,#1a1a2e,#16213e)}
+.m-d{background:linear-gradient(135deg,#0d1b3e,var(--navy))}
+.m-e{background:linear-gradient(135deg,#5c3000,#a05800)}
+.model-label{font-size:.62rem;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.5);text-transform:uppercase}
+.model-name{font-size:1rem;font-weight:700;color:white;margin-top:.2rem}
+.model-sub{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:.1rem}
+.model-body{padding:1.1rem 1.25rem}
+.model-row{display:flex;gap:.5rem;font-size:.82rem;color:rgba(255,255,255,.65);margin-bottom:.45rem;line-height:1.5}
+.model-key{font-weight:700;color:rgba(255,255,255,.85);min-width:50px;flex-shrink:0;font-size:.78rem}
+.info-note{
+  background:rgba(245,160,0,.08);border:1px solid rgba(245,160,0,.2);
+  border-radius:8px;padding:1rem 1.25rem;
+  font-size:.875rem;color:rgba(255,220,130,.8);line-height:1.65;margin-top:1rem;
+}
+.teacher-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem}
+.teacher-card{border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border)}
+.teacher-head{padding:1.25rem}
+.cet-a{background:linear-gradient(135deg,#1a1a2e,#2a2a4e)}
+.cet-b{background:linear-gradient(135deg,#8B0010,var(--red))}
+.teacher-body{padding:1.25rem;background:rgba(255,255,255,.03)}
+.t-row{display:flex;gap:.6rem;font-size:.875rem;color:rgba(255,255,255,.65);margin-bottom:.55rem;line-height:1.55}
+.t-key{font-weight:700;color:rgba(255,255,255,.85);min-width:86px;font-size:.82rem}
+
+/* ── GALLERY ── */
+.gallery-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.gallery-text .section-h2{color:white}
+.gallery-text p{font-size:.95rem;color:var(--text-dim);line-height:1.8;margin-top:1rem}
+.gallery-grid{
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:1rem;
+}
+.gallery-img{
+  border-radius:var(--r);overflow:hidden;
+  position:relative;
+}
+.gallery-img-inner{
+  width:100%;aspect-ratio:4/3;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;color:rgba(255,255,255,.25);
+  transition:transform .4s;
+}
+.gallery-img:hover .gallery-img-inner{transform:scale(1.04)}
+.gi-1{background:url('images/gallery-space.jpg') center/cover no-repeat,linear-gradient(135deg,#1e3a5c,#2d5f8a);grid-column:1;grid-row:1}
+.gi-2{background:url('images/gallery-students.jpg') center/cover no-repeat,linear-gradient(135deg,#2c1515,#5a2020);grid-column:2;grid-row:1 / span 2}
+.gi-3{background:url('images/gallery-workshop.jpg') center/cover no-repeat,linear-gradient(135deg,#1a2c1a,#2d5a2d);grid-column:1;grid-row:2}
+.gi-2 .gallery-img-inner{aspect-ratio:3/4}
+.gallery-img-caption{
+  position:absolute;bottom:0;left:0;right:0;padding:.75rem 1rem;
+  background:linear-gradient(transparent,rgba(0,0,0,.6));
+  font-size:.75rem;color:rgba(255,255,255,.7);
+}
+.gallery-placeholder{
+  content:'📸 Replace with photo';
+}
+
+/* ── SCHOOLS ── */
+.schools-filter{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.filter-btn{
+  padding:.45rem 1rem;border-radius:20px;font-size:.8rem;font-weight:600;
+  border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.55);
+  cursor:pointer;background:transparent;font-family:var(--font);transition:all .2s;
+}
+.filter-btn.active{background:var(--red);color:white;border-color:var(--red)}
+.filter-btn:hover:not(.active){border-color:rgba(255,255,255,.3);color:white}
+.schools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.school-card{
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:1.35rem;
+  border-top:3px solid var(--border);transition:border-color .2s,transform .2s;
+}
+.school-card:hover{transform:translateY(-2px)}
+.school-card.node{border-top-color:var(--amber)}
+.school-card.nexus{border-top-color:#6B9FEF}
+.school-badge{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.22rem .6rem;border-radius:3px;margin-bottom:.6rem;
+}
+.badge-node{background:rgba(245,160,0,.15);color:var(--amber)}
+.badge-nexus{background:rgba(107,159,239,.15);color:#6B9FEF}
+.school-name{font-size:.95rem;font-weight:700;color:white;margin-bottom:.15rem}
+.school-type{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:.5rem}
+.school-desc{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.6}
+.schools-note{font-size:.78rem;color:rgba(255,255,255,.3);text-align:center;margin-top:1.25rem;font-style:italic}
+
+/* ── JOIN ── */
+.join-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.join-steps{display:flex;flex-direction:column;gap:0}
+.join-step{
+  display:flex;gap:1.25rem;padding:1.5rem 0;
+  border-bottom:1px solid var(--border);
+}
+.join-step:last-child{border-bottom:none}
+.step-num{
+  width:36px;height:36px;border-radius:50%;background:var(--red);
+  color:white;font-size:.8rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
+}
+.step-text h4{font-size:.95rem;font-weight:700;color:white;margin-bottom:.3rem}
+.step-text p{font-size:.875rem;color:rgba(255,255,255,.6);line-height:1.65}
+.step-text a{color:var(--red)}
+.contact-card{
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:var(--r);padding:2.5rem;
+  border-top:3px solid var(--red);
+}
+.contact-card h3{font-size:1.3rem;font-weight:700;color:white;margin-bottom:.5rem}
+.contact-card>p{font-size:.88rem;color:var(--text-dim);line-height:1.7;margin-bottom:1.75rem}
+.c-row{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:1.1rem}
+.c-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.c-label{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.c-val{font-size:.88rem;color:rgba(255,255,255,.85);font-weight:500;margin-top:.1rem}
+.c-val a{color:var(--red)}
+.btn-red-full{
+  display:block;width:100%;background:var(--red);color:white;text-align:center;
+  padding:.95rem;border-radius:8px;font-weight:700;font-size:.95rem;
+  margin-top:1.75rem;transition:background .2s;font-family:var(--font);
+  border:none;cursor:pointer;
+}
+.btn-red-full:hover{background:var(--red-dark)}
+.g2g-highlight{
+  background:rgba(208,2,27,.08);border:1px solid rgba(208,2,27,.2);
+  border-radius:8px;padding:1rem 1.25rem;margin-bottom:2rem;
+  display:flex;align-items:flex-start;gap:.75rem;
+}
+.g2g-highlight .icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.g2g-highlight h4{font-size:.88rem;font-weight:700;color:white;margin-bottom:.15rem}
+.g2g-highlight p{font-size:.82rem;color:rgba(255,255,255,.55);margin:0;line-height:1.55}
+
+/* ── COMPARISON TABLE ── */
+.table-wrap{overflow-x:auto;margin-top:2.5rem}
+.comp-table{width:100%;border-collapse:collapse;font-size:.875rem}
+.comp-table th,.comp-table td{
+  padding:.85rem 1rem;text-align:left;
+  border-bottom:1px solid rgba(255,255,255,.06);line-height:1.5;vertical-align:top;
+}
+.comp-table thead th{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.comp-table thead th:first-child{color:rgba(255,255,255,.4);background:rgba(255,255,255,.04)}
+.comp-table thead th:nth-child(2){background:rgba(245,160,0,.12);color:var(--amber)}
+.comp-table thead th:nth-child(3){background:rgba(26,46,90,.5);color:#6B9FEF}
+.comp-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.comp-table td:first-child{font-weight:600;color:rgba(255,255,255,.85);white-space:nowrap}
+.comp-table td:not(:first-child){color:rgba(255,255,255,.6)}
+.check{color:#4CAF50;font-weight:700}
+
+/* ── FOOTER ── */
+footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
+.footer-main{max-width:var(--container);margin:0 auto;padding:0 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+.footer-brand{}
+.footer-logo-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.footer-logo-mark{width:38px;height:38px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:800;color:white;text-align:center;line-height:1.1;letter-spacing:.04em}
+.footer-logo-name{font-size:.95rem;font-weight:700;color:white}
+.footer-logo-name span{color:var(--red)}
+.footer-brand p{font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.75}
+.footer-col h5{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.9rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.45rem}
+.footer-col a{font-size:.84rem;color:rgba(255,255,255,.5);transition:color .2s}
+.footer-col a:hover{color:white}
+.footer-bottom{border-top:1px solid var(--border);padding:1.25rem 2rem;max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.25)}
+.footer-legal{display:flex;gap:1.25rem}
+.footer-legal a{font-size:.75rem;color:rgba(255,255,255,.25);transition:color .2s}
+.footer-legal a:hover{color:rgba(255,255,255,.6)}
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .about-grid,.tiers-grid,.join-grid,.gallery-layout{grid-template-columns:1fr}
+  .about-img-wrap{display:none}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .schools-grid{grid-template-columns:1fr 1fr}
+  .footer-main{grid-template-columns:1fr;gap:2rem}
+  .teacher-grid{grid-template-columns:1fr}
+  .model-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .features-grid,.schools-grid,.model-grid,.gallery-grid{grid-template-columns:1fr}
+  .gi-2{grid-row:auto}
+  .gi-2 .gallery-img-inner{aspect-ratio:4/3}
+  .hero-stats{flex-direction:column}
+  .hero-stat{border-right:none;border-bottom:1px solid var(--border)}
+  .hero-stat:last-child{border-bottom:none}
+  .tiers-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#top" class="nav-logo">
+    <div class="nav-logo-mark">SP<br/>FAB</div>
+    <span class="nav-logo-name"><span>Maker</span>Connect 2026</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#network">The Network</a></li>
+    <li><a href="#programmes">Programmes</a></li>
+    <li><a href="#schools">Schools</a></li>
+    <li><a href="#join" class="nav-cta">Join the Network</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#network" onclick="closeMobile()">The Network</a>
+    <a href="#programmes" onclick="closeMobile()">Programmes</a>
+    <a href="#schools" onclick="closeMobile()">Schools</a>
+    <a href="#join" onclick="closeMobile()">Join the Network</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="top" style="scroll-margin-top:0">
+  <div id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        SP FabLab · Singapore Polytechnic
+      </div>
+      <h1 class="hero-h1">
+        Building a<br/>
+        <span class="accent">Maker Education</span><br/>
+        <span class="serif">community for schools</span>
+      </h1>
+      <p class="hero-sub">Connecting Singapore schools with the tools, expertise, and partnerships to bring hands-on, design-based learning into every classroom.</p>
+      <div class="hero-btns">
+        <a href="#join" class="btn-solid">Join the Network</a>
+        <a href="#network" class="btn-ghost">Explore the Tiers</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">60<sup>hrs</sup></div><div class="hero-stat-label">Student Programme</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">Partnership Tiers</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">5<sup>+</sup></div><div class="hero-stat-label">Delivery Models</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">G2G</div><div class="hero-stat-label">No ITQ Required</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHEVRON BANNER ══ -->
+<div class="chevron-banner">
+  <div class="chevron-bg"></div>
+  <div class="chevron-content">
+    <div class="chevron-logo">
+      <div class="chevron-logo-mark">SP<br/>FAB<br/>LAB</div>
+      <div>
+        <div class="chevron-tagline"><span class="red">innovators</span></div>
+        <div class="chevron-tagline" style="font-size:clamp(1.2rem,2.5vw,2rem);opacity:.5;margin-top:-.2rem">JUST BRING YOUR IDEA</div>
+      </div>
+    </div>
+    <div class="chevron-divider"></div>
+    <div class="chevron-cta">
+      Empowering Schools Through<br/><span>Maker Education</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section class="section section-dark" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-tag">About MakerConnect</div>
+        <h2 class="section-h2">Empowering Schools Through <span style="color:var(--red)">Hands-On Making</span></h2>
+        <p>MakerConnect is SP FabLab's annual community event and the home of the <strong style="color:white">SP FabLab Maker Education Network</strong> — a structured ecosystem helping Singapore schools explore, adopt, and sustain maker education.</p>
+        <p>In a world shaped by AI, the ability to design, build, and solve real problems becomes the essential human skill. The SP FabLab Maker Education Network gives schools a supported, practical pathway to develop exactly those competencies — without starting from scratch.</p>
+        <div class="about-pills">
+          <div class="about-pill">
+            <div class="about-pill-icon">🏛️</div>
+            <div class="about-pill-text"><h4>G2G — No ITQ or Tender Required</h4><p>SP FabLab is a statutory board under MOE. Schools engage directly as a G2G partner for both tiers.</p></div>
+          </div>
+          <div class="about-pill">
+            <div class="about-pill-icon">🎓</div>
+            <div class="about-pill-text"><h4>SP Elective Module Pathway</h4><p>Students completing 60 hours may be eligible for elective module exemptions upon SP enrolment.</p></div>
+          </div>
+          <div class="about-pill">
+            <div class="about-pill-icon">🤝</div>
+            <div class="about-pill-text"><h4>Community of Practice</h4><p>A growing network of educators, school leaders, and maker education champions across Singapore.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-img-wrap reveal reveal-delay-2">
+        <div class="about-img-main"></div>
+        <div class="about-img-badge"><strong>2026</strong><span>Annual Event</span></div>
+        <div class="about-img-float"><strong>Singapore Polytechnic</strong><p>Dover Road Campus</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURE CARDS ══ -->
+<section class="section section-light">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:.5rem">
+      <div class="section-tag" style="justify-content:center">What We Offer</div>
+      <h2 class="section-h2">Collaborate, Innovate, <span style="color:var(--red)">Create Impact</span></h2>
+      <p class="section-lead" style="margin:0 auto">Access to SP FabLab's full suite of maker education support — from student programmes to teacher training to space design.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-card-img img-1" data-label="📸 Student programme photo">
+          
+        </div>
+        <div class="feature-card-body">
+          <h3>Student Maker Programmes</h3>
+          <p>Hands-on, 3-tier pathways totalling 60 hours — in 5 flexible delivery models suited to different school timetables and ALP structures.</p>
+        </div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-card-img img-2" data-label="📸 Teacher training photo">
+          
+        </div>
+        <div class="feature-card-body">
+          <h3>Teacher Professional Development</h3>
+          <p>CET-accredited training in digital fabrication and maker pedagogy. SSG-funded and customised options available. Counts towards Learning Nexus status.</p>
+        </div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-card-img img-3" data-label="📸 Makerspace photo">
+          
+        </div>
+        <div class="feature-card-body">
+          <h3>Makerspace Design Support</h3>
+          <p>Advisory consultancy and the SP FabLab Space Design Kit — helping schools plan, visualise, and build effective maker learning environments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NETWORK TIERS ══ -->
+<section class="section section-darker" id="network">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">The Network</div>
+      <h2 class="section-h2">Two Tiers. <span style="color:var(--red)">One Journey.</span></h2>
+      <p class="section-lead">Schools typically enter as Learning Nodes and progress to Learning Nexus as their maker education capability deepens. Both tiers are part of the same connected network.</p>
+    </div>
+
+    <div class="tiers-grid reveal reveal-delay-1">
+      <div class="tier-card">
+        <div class="tier-card-head node">
+          <div class="tier-tag">Entry Tier · Exploratory · Annual</div>
+          <div class="tier-name">Learning Node</div>
+          <div class="tier-desc">For schools at early awareness, exploration, or pilot stage in maker education.</div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-section-label">SP FabLab Provides</div>
+          <ul class="tier-list amber">
+            <li>Invitations to Learning Journeys, sharing sessions and community events</li>
+            <li>Responsive, chargeable support aligned to school interests and readiness</li>
+            <li>Access to MakerConnect community of practice</li>
+          </ul>
+          <div class="tier-section-label">Annual Expectations</div>
+          <ul class="tier-list amber">
+            <li>Participate in 1 SP FabLab Learning Journey or Onboarding Programme</li>
+            <li>Extend an invitation to one fellow educator from another school</li>
+            <li>Attend or be represented at MakerConnect annually</li>
+          </ul>
+          <div class="tier-commit node"><strong>Commitment: Low</strong> — Exploratory, participation-based. Annual, renewable.</div>
+        </div>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-card-head nexus">
+          <div class="tier-tag">Strategic Tier · Developmental · Multi-year</div>
+          <div class="tier-name">Learning Nexus</div>
+          <div class="tier-desc">For schools committed to institutionalising maker education at curriculum, staff, and infrastructure levels.</div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-section-label">SP FabLab Provides</div>
+          <ul class="tier-list navy">
+            <li>3-tier structured student Maker Education programme (~60 hours)</li>
+            <li>CET-accredited or customised teacher professional development</li>
+            <li>Makerspace planning consultancy and SP FabLab Space Design Kit</li>
+            <li>Priority access to SP FabLab facilities, expertise, and joint pilots</li>
+            <li>Formal recognition as SP FabLab Maker Education Learning Nexus</li>
+          </ul>
+          <div class="tier-section-label">Annual Expectations</div>
+          <ul class="tier-list navy">
+            <li>Conduct at least 1 teacher-led Maker Education workshop</li>
+            <li>Deliver 1 cluster or professional community sharing</li>
+            <li>Engage students in 3-tier programme (~60 hours)</li>
+            <li>Minimum 5–9 trained staff via SP CET programmes annually</li>
+            <li>Makerspace readiness — existing or demonstrated intent</li>
+          </ul>
+          <div class="tier-commit nexus"><strong>Commitment: High</strong> — School leadership-supported, teacher-led. Multi-year, reviewed annually.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.75rem;color:rgba(255,255,255,.7)">Node vs Nexus — At a Glance</h3>
+      <div class="table-wrap">
+        <table class="comp-table">
+          <thead>
+            <tr><th>Dimension</th><th>⬡ Learning Node</th><th>◆ Learning Nexus</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Relationship</td><td>Network affiliation (Exploratory)</td><td>Strategic capability partnership (Developmental)</td></tr>
+            <tr><td>Duration</td><td>Annual, renewable</td><td>Multi-year, reviewed annually</td></tr>
+            <tr><td>G2G — No ITQ/Tender</td><td class="check">✓ Yes</td><td class="check">✓ Yes</td></tr>
+            <tr><td>Student Programme</td><td>Ad hoc / chargeable access</td><td>3-tier structured pathway (~60 hrs)</td></tr>
+            <tr><td>Teacher Training</td><td>Open access to CET courses</td><td>Min. 5–9 trained staff via SP CET</td></tr>
+            <tr><td>Makerspace Support</td><td>—</td><td>Consultancy + Space Design Kit</td></tr>
+            <tr><td>Facilities Access</td><td>—</td><td>Complimentary (subject to scheduling)</td></tr>
+            <tr><td>Formal Recognition</td><td>—</td><td>Recognised SP FabLab Learning Nexus</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROGRAMMES ══ -->
+<section class="section section-dark" id="programmes">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Programmes</div>
+      <h2 class="section-h2">Flexible Pathways for <span style="color:var(--red)">Every School</span></h2>
+      <p class="section-lead">All student programmes total 60 hours across a 3-tier progression. Choose the delivery model that best fits your school's timetable and goals.</p>
+    </div>
+
+    <div class="prog-switcher reveal reveal-delay-1">
+      <button class="prog-btn active" onclick="switchProg('students',this)">Student Programmes</button>
+      <button class="prog-btn" onclick="switchProg('teachers',this)">Teacher Training</button>
+    </div>
+
+    <div class="prog-panel active" id="prog-students">
+      <div class="model-grid reveal">
+        <div class="model-card">
+          <div class="model-head m-a"><p class="model-label">Model A</p><p class="model-name">ApLM Workshop</p><p class="model-sub">3 Applied Learning Modules</p></div>
+          <div class="model-body">
+            <div class="model-row"><span class="model-key">Modules</span><span>Design Cool Gadgets · Build Your Own IoT · I am a Technopreneur</span></div>
+            <div class="model-row"><span class="model-key">Duration</span><span>&gt;60 hrs (3 × 3-day blocks)</span></div>
+            <div class="model-row"><span class="model-key">Schedule</span><span>Mar, Jun, Sep 2027 (TBC)</span></div>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-head m-b"><p class="model-label">Model B</p><p class="model-name">Customised Workshop</p><p class="model-sub">Flexible 3-tier split</p></div>
+          <div class="model-body">
+            <div class="model-row"><span class="model-key">Duration</span><span>60 hrs (e.g. 20+20+20 or 10+20+30)</span></div>
+            <div class="model-row"><span class="model-key">Schedule</span><span>Anytime</span></div>
+            <div class="model-row"><span class="model-key">Note</span><span>School-defined split across 3 tiers</span></div>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-head m-c"><p class="model-label">Model C</p><p class="model-name">Whitespace Workshop</p><p class="model-sub">Curriculum-integrated</p></div>
+          <div class="model-body">
+            <div class="model-row"><span class="model-key">Duration</span><span>60 hrs across timetable (2–4 hrs/week)</span></div>
+            <div class="model-row"><span class="model-key">Schedule</span><span>Jan → Nov</span></div>
+            <div class="model-row"><span class="model-key">Support</span><span>Student Agents support delivery</span></div>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-head m-d"><p class="model-label">Model D</p><p class="model-name">Modular Workshop</p><p class="model-sub">CCA-friendly</p></div>
+          <div class="model-body">
+            <div class="model-row"><span class="model-key">Duration</span><span>3 × 15 hrs + 1 × 15 hr Capstone = 60 hrs</span></div>
+            <div class="model-row"><span class="model-key">Schedule</span><span>Jan → Nov</span></div>
+            <div class="model-row"><span class="model-key">Ideal for</span><span>CCA-run maker education</span></div>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-head m-e"><p class="model-label">Model E</p><p class="model-name">Vacation Workshop</p><p class="model-sub">Holiday intensive</p></div>
+          <div class="model-body">
+            <div class="model-row"><span class="model-key">Duration</span><span>60 hrs over 2 holiday weeks</span></div>
+            <div class="model-row"><span class="model-key">Schedule</span><span>Mar, Jun, Sep, Nov holidays</span></div>
+            <div class="model-row"><span class="model-key">Hours</span><span>Mon–Fri, 9am–4pm</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="info-note">✱ Students completing 60 hours may be eligible for SP elective module exemptions. Minor customisation is available for any model — contact <a href="/cdn-cgi/l/email-protection#81e7e0e3ede0e3c1f2f1afe4e5f4aff2e6" style="color:var(--amber)"><span class="__cf_email__" data-cfemail="1e787f7c727f7c5e6d6e307b7a6b306d79">[email&#160;protected]</span></a> to discuss.</div>
+    </div>
+
+    <div class="prog-panel" id="prog-teachers">
+      <p style="color:var(--text-dim);font-size:.95rem;margin-bottom:1.5rem">A minimum of <strong style="color:white">5 trained teachers</strong> is required for Learning Nexus status. Both programmes are face-to-face with practical components.</p>
+      <div class="teacher-grid">
+        <div class="teacher-card">
+          <div class="teacher-head cet-a"><p class="model-label" style="color:rgba(255,255,255,.45)">Model A · Non-SSG Funded</p><p class="model-name">Digital Fabrication and 3D Creation</p></div>
+          <div class="teacher-body">
+            <div class="t-row"><span class="t-key">Duration</span><span>12 hours / 1.5 days</span></div>
+            <div class="t-row"><span class="t-key">Mode</span><span>Facilitated F2F + Practical</span></div>
+            <div class="t-row"><span class="t-key">Group Size</span><span>No minimum; max 15 pax</span></div>
+            <div class="t-row"><span class="t-key">Fee</span><span>$3,000 before GST (up to 15 pax)</span></div>
+            <div class="t-row"><span class="t-key">Schedule</span><span>Anytime</span></div>
+          </div>
+        </div>
+        <div class="teacher-card">
+          <div class="teacher-head cet-b"><p class="model-label" style="color:rgba(255,255,255,.45)">Model B · SSG-Funded</p><p class="model-name">Computer Aided Design &amp; Digital Fabrication</p></div>
+          <div class="teacher-body">
+            <div class="t-row"><span class="t-key">Duration</span><span>24 hours / 3 days</span></div>
+            <div class="t-row"><span class="t-key">Mode</span><span>Facilitated F2F + Practical</span></div>
+            <div class="t-row"><span class="t-key">Group Size</span><span>9 (min) to 20 (max) pax</span></div>
+            <div class="t-row"><span class="t-key">Fee</span><span>SSG-subsidised — see <a href="https://www.sp.edu.sg/pace" target="_blank" style="color:var(--red)">SP PACE website</a></span></div>
+            <div class="t-row"><span class="t-key">Schedule</span><span>Anytime</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="info-note">✱ The SSG-funded CAD &amp; Digital Fabrication course is available via <a href="https://www.sp.edu.sg/pace" target="_blank" style="color:var(--amber)">SP PACE Academy</a>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section class="section section-darker">
+  <div class="container">
+    <div class="gallery-layout">
+      <div class="reveal">
+        <div class="section-tag">Gallery</div>
+        <h2 class="section-h2">Making Ideas <span style="color:var(--red)">Real</span></h2>
+        <p style="color:var(--text-dim);font-size:.95rem;line-height:1.8;margin-top:1rem">Explore creativity and innovation through hands-on projects, collaboration, and the maker community at SP FabLab.</p>
+        <a href="/cdn-cgi/l/email-protection#94f2f5f6f8f5f6d4e7e4baf1f0e1bae7f3" style="display:inline-block;margin-top:1.75rem;padding:.65rem 1.5rem;border:1.5px solid rgba(255,255,255,.2);border-radius:8px;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.7);transition:all .2s" onmouseover="this.style.borderColor='white';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,.2)';this.style.color='rgba(255,255,255,.7)'">Request a Learning Journey →</a>
+      </div>
+      <div class="gallery-grid reveal reveal-delay-2">
+        <div class="gallery-img gi-1">
+          <div class="gallery-img-inner">
+            
+          </div>
+          <div class="gallery-img-caption">SP FabLab — T11C01</div>
+        </div>
+        <div class="gallery-img gi-2">
+          <div class="gallery-img-inner">
+            
+          </div>
+          <div class="gallery-img-caption">Student Maker Programme</div>
+        </div>
+        <div class="gallery-img gi-3">
+          <div class="gallery-img-inner">
+            
+          </div>
+          <div class="gallery-img-caption">Teacher Work Attachment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SCHOOLS ══ -->
+<section class="section section-dark" id="schools">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Network Schools</div>
+      <h2 class="section-h2">Schools <span style="color:var(--red)">Making</span> a Difference</h2>
+      <p class="section-lead">A growing community of Singapore schools at every stage of their maker education journey.</p>
+    </div>
+    <div class="schools-filter reveal reveal-delay-1">
+      <button class="filter-btn active" onclick="filterSchools('all',this)">All Schools</button>
+      <button class="filter-btn" onclick="filterSchools('node',this)">⬡ Learning Node</button>
+      <button class="filter-btn" onclick="filterSchools('nexus',this)">◆ Learning Nexus</button>
+    </div>
+    <div class="schools-grid reveal reveal-delay-2" id="schools-grid">
+      <div class="school-card nexus" data-tier="nexus"><span class="school-badge badge-nexus">◆ Learning Nexus</span><p class="school-name">Placeholder Secondary School</p><p class="school-type">Government Secondary · West Region</p><p class="school-desc">Integrating maker education into their ALP, with students completing the full 60-hour programme and teachers trained in digital fabrication.</p></div>
+      <div class="school-card nexus" data-tier="nexus"><span class="school-badge badge-nexus">◆ Learning Nexus</span><p class="school-name">Placeholder Institution</p><p class="school-type">Independent School · Central Region</p><p class="school-desc">Using the SP FabLab Space Design Kit and UX research to redesign collaborative learning environments across campus.</p></div>
+      <div class="school-card node" data-tier="node"><span class="school-badge badge-node">⬡ Learning Node</span><p class="school-name">Placeholder Primary School</p><p class="school-type">Government Primary · North Region</p><p class="school-desc">Exploring maker education through teacher learning journeys and the MakerConnect community event.</p></div>
+      <div class="school-card node" data-tier="node"><span class="school-badge badge-node">⬡ Learning Node</span><p class="school-name">Placeholder Secondary School</p><p class="school-type">Government Secondary · East Region</p><p class="school-desc">Piloting introductory maker workshops within their CCE programme, building teacher confidence in design-based learning.</p></div>
+      <div class="school-card nexus" data-tier="nexus"><span class="school-badge badge-nexus">◆ Learning Nexus</span><p class="school-name">Placeholder Secondary School</p><p class="school-type">Government Secondary · North-West Region</p><p class="school-desc">Completed first cohort of the 3-tier programme via Model C, with ongoing makerspace development using SP FabLab advisory support.</p></div>
+      <div class="school-card node" data-tier="node"><span class="school-badge badge-node">⬡ Learning Node</span><p class="school-name">Placeholder Junior College</p><p class="school-type">Junior College · Central Region</p><p class="school-desc">Recently onboarded, exploring maker education for enrichment programmes and the MakerConnect annual community event.</p></div>
+    </div>
+    <p class="schools-note reveal">School names are illustrative placeholders. Contact SP FabLab to learn about current network members.</p>
+  </div>
+</section>
+
+<!-- ══ JOIN ══ -->
+<section class="section section-darker" id="join">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Get Involved</div>
+      <h2 class="section-h2">Get in Touch <span style="color:var(--red)">With Us</span></h2>
+      <p class="section-lead">Whether you are just starting to explore maker education or ready to embed it school-wide, there is a place for you in the network.</p>
+    </div>
+    <div class="join-grid" style="margin-top:3rem">
+      <div class="reveal">
+        <div class="g2g-highlight">
+          <span class="icon">✅</span>
+          <div><h4>No ITQ or Tender Required</h4><p>Schools can engage SP FabLab directly as a G2G partner — for both the Learning Node and Learning Nexus tiers.</p></div>
+        </div>
+        <div class="join-steps">
+          <div class="join-step"><div class="step-num">1</div><div class="step-text"><h4>Send us an email</h4><p>Reach out to <a href="/cdn-cgi/l/email-protection#c5a3a4a7a9a4a785b6b5eba0a1b0ebb6a2"><span class="__cf_email__" data-cfemail="d5b3b4b7b9b4b795a6a5fbb0b1a0fba6b2">[email&#160;protected]</span></a> with a brief intro about your school's maker education journey.</p></div></div>
+          <div class="join-step"><div class="step-num">2</div><div class="step-text"><h4>Attend a Learning Journey</h4><p>Visit SP FabLab for a guided session — experience the environment, meet the team, and explore what a partnership could look like.</p></div></div>
+          <div class="join-step"><div class="step-num">3</div><div class="step-text"><h4>Join as a Learning Node</h4><p>Start with the Learning Node tier — low commitment, high exposure. Annual and renewable.</p></div></div>
+          <div class="join-step"><div class="step-num">4</div><div class="step-text"><h4>Progress to Learning Nexus</h4><p>As your school's capability deepens, progress to Learning Nexus — becoming a capability anchor in the network.</p></div></div>
+        </div>
+      </div>
+      <div class="contact-card reveal reveal-delay-2">
+        <h3>Contact SP FabLab</h3>
+        <p>Our team is happy to answer questions, arrange a learning journey, or discuss how a partnership could work for your school.</p>
+        <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="/cdn-cgi/l/email-protection#80e6e1e2ece1e2c0f3f0aee5e4f5aef3e7"><span class="__cf_email__" data-cfemail="cbadaaa9a7aaa98bb8bbe5aeafbee5b8ac">[email&#160;protected]</span></a></p></div></div>
+        <div class="c-row"><span class="c-icon">🌐</span><div><p class="c-label">Website</p><p class="c-val"><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">sp.edu.sg/student-services/fablab</a></p></div></div>
+        <div class="c-row"><span class="c-icon">📍</span><div><p class="c-label">Address</p><p class="c-val">Singapore Polytechnic, 500 Dover Road, Singapore 139651</p></div></div>
+        <div class="c-row"><span class="c-icon">🕐</span><div><p class="c-label">Opening Hours</p><p class="c-val">Mon–Fri, 9am–5pm (Term &amp; Vacation)</p></div></div>
+        <a href="/cdn-cgi/l/email-protection#e88e898a84898aa89b98c68d8c9dc69b8fd79b9d8a828d8b9cd5bbb8c8ae898aa4898ac8a589838d9ac8ad8c9d8b899c818786c8a68d9c9f879a83c80a687cc8bb8b80878784c8ad86999d819a91ce8a878c91d5a081c8bbb8c8ae898aa4898ac89c8d8985c4cdd8accdd8a9cdd8accdd8a9a1c88985c89f9a819c81868fc88786c88a8d8089848ec8878ec8b3bb8b80878784c8a689858db5c89c87c88e81868cc8879d9cc885879a8dc8898a879d9cc88287818681868fc89c808dc8bbb8c8ae898aa4898ac8a589838d9ac8ad8c9d8b899c818786c8a68d9c9f879a83c6cdd8accdd8a9cdd8accdd8a9a79d9ac89b8b80878784c8819bc88b9d9a9a8d869c8491c8b3899cc88d899a8491c88d909884879a899c818786c8c7c8988184879c81868fc8c7c89a8d898c91c88e879ac88c8d8d988d9ac898899a9c868d9a9b808198b5c6cdd8accdd8a9cdd8accdd8a9bf8dc8899a8dc881869c8d9a8d9b9c8d8cc88186c8b3a48d899a8681868fc8a6878c8dc8c7c8a48d899a8681868fc8a68d909d9bc8c7c88a879c80c89c818d9a9bb5c6cdd8accdd8a9cdd8accdd8a9bc80898683c891879dc6" class="btn-red-full">Send an Enquiry →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <div class="footer-logo-mark">SP<br/>FAB</div>
+        <span class="footer-logo-name"><span>Maker</span>Connect 2026</span>
+      </div>
+      <p>A Singapore Polytechnic SP FabLab initiative supporting maker education in Singapore schools. MakerConnect is the annual community event of the SP FabLab Maker Education Network.</p>
+      <p style="margin-top:.6rem">500 Dover Road, Singapore 139651</p>
+    </div>
+    <div class="footer-col">
+      <h5>On This Page</h5>
+      <ul>
+        <li><a href="#about">About MakerConnect</a></li>
+        <li><a href="#network">The Network</a></li>
+        <li><a href="#programmes">Programmes</a></li>
+        <li><a href="#schools">Network Schools</a></li>
+        <li><a href="#join">How to Join</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>SP FabLab</h5>
+      <ul>
+        <li><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">SP FabLab Page</a></li>
+        <li><a href="https://www.sp.edu.sg/pace" target="_blank">SP PACE Academy</a></li>
+        <li><a href="https://www.sp.edu.sg" target="_blank">Singapore Polytechnic</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#3b5d5a59575a597b484b155e5f4e15485c"><span class="__cf_email__" data-cfemail="e28483808e8380a29192cc878697cc9185">[email&#160;protected]</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Singapore Polytechnic · SP FabLab · Official (Open)</p>
+    <div class="footer-legal">
+      <a href="https://www.sp.edu.sg/footer/privacy-statement" target="_blank">Privacy Statement</a>
+      <a href="https://www.sp.edu.sg/footer/terms-of-use" target="_blank">Terms of Use</a>
+      <a href="https://www.sp.edu.sg/about-sp/contact-us" target="_blank">Contact SP</a>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Nav scroll effect ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── Active nav on scroll ──
+const sections = ['about','network','programmes','schools','join'];
+const navLinks = document.querySelectorAll('.nav-links a');
+const sectionEls = sections.map(id => document.getElementById(id)).filter(Boolean);
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const match = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sectionEls.forEach(el => io.observe(el));
+
+// ── Scroll reveal ──
+const revealObs = new IntersectionObserver(entr
