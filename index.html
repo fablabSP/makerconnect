@@ -403,23 +403,11 @@ img{display:block;max-width:100%;height:auto}
 .schools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .school-card{
   background:rgba(255,255,255,.04);border:1px solid var(--border);
-  border-radius:var(--r-sm);padding:1.35rem;
-  border-top:3px solid var(--border);transition:border-color .2s,transform .2s;
-}
-.school-card:hover{transform:translateY(-2px)}
-.school-card.node{border-top-color:var(--amber)}
-.school-card.nexus{border-top-color:#6B9FEF}
-.school-card{
-  background:rgba(255,255,255,.04);border:1px solid var(--border);
   border-radius:var(--r);overflow:hidden;
   border-top:3px solid var(--border);transition:border-color .2s,transform .25s;
 }
 .school-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
 .school-card.node{border-top-color:var(--amber)}.school-card.nexus{border-top-color:#6B9FEF}
-.school-card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,var(--dark-3),var(--mid));position:relative}
-.school-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.school-card:hover .school-card-img img{transform:scale(1.05)}
-.school-card-body{padding:1.25rem}}
 .school-card-img{
   width:100%;aspect-ratio:16/9;overflow:hidden;
   background:linear-gradient(135deg,var(--dark-3),var(--mid));
@@ -665,7 +653,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
     </div>
     <div class="features-grid">
       <div class="feature-card reveal reveal-delay-1">
-      <!--  <div class="feature-card-img img-1" data-label="📸 Student programme photo"> -->
+        <div class="feature-card-img img-1" data-label="📸 Student programme photo">
           
         </div>
         <div class="feature-card-body">
@@ -674,7 +662,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         </div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
-       <!-- <div class="feature-card-img img-2" data-label="📸 Teacher training photo"> -->
+        <div class="feature-card-img img-2" data-label="📸 Teacher training photo">
           
         </div>
         <div class="feature-card-body">
@@ -683,7 +671,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         </div>
       </div>
       <div class="feature-card reveal reveal-delay-3">
-       <!-- <div class="feature-card-img img-3" data-label="📸 Makerspace photo"> -->
+        <div class="feature-card-img img-3" data-label="📸 Makerspace photo">
           
         </div>
         <div class="feature-card-body">
@@ -836,7 +824,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
           </div>
         </div>
       </div>
-      <div class="info-note">✱ Students completing 60 hours may be eligible for SP elective module exemptions. Minor customisation is available for any model — contact <a href="mailto:aqr-fablab-staff@sp.edu.sg Student 60hr Programme" style="color:var(--amber)"><span class="__cf_email__" data-cfemail="1e787f7c727f7c5e6d6e307b7a6b306d79">[email&#160;protected]</span></a> to discuss.</div>
+      <div class="info-note">✱ Students completing 60 hours may be eligible for SP elective module exemptions. Minor customisation is available for any model — contact <a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry" style="color:var(--amber)">aqr-fablab-staff@sp.edu.sg</a> >reach out to us</a> to discuss.</div>
     </div>
 
     <div class="prog-panel" id="prog-teachers">
@@ -876,14 +864,14 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="section-tag">Gallery</div>
         <h2 class="section-h2">Making Ideas <span style="color:var(--red)">Real</span></h2>
         <p style="color:var(--text-dim);font-size:.95rem;line-height:1.8;margin-top:1rem">Hands-on projects, collaboration, and community at SP FabLab.</p>
-        <a href="/cdn-cgi/l/email-protection#94f2f5f6f8f5f6d4e7e4baf1f0e1bae7f3" style="display:inline-block;margin-top:1.75rem;padding:.65rem 1.5rem;border:1.5px solid rgba(255,255,255,.2);border-radius:8px;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.7);transition:all .2s" onmouseover="this.style.borderColor='white';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,.2)';this.style.color='rgba(255,255,255,.7)'">Request a Learning Journey →</a>
+        <a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry" style="display:inline-block;margin-top:1.75rem;padding:.65rem 1.5rem;border:1.5px solid rgba(255,255,255,.2);border-radius:8px;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.7);transition:all .2s" onmouseover="this.style.borderColor='white';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,.2)';this.style.color='rgba(255,255,255,.7)'">Request a Learning Journey →</a>
       </div>
       <div class="gallery-grid reveal reveal-delay-2">
         <div class="gallery-img gi-1">
           <div class="gallery-img-inner">
             
           </div>
-          <div class="gallery-img-caption">SP FabLab — Makerspace</div>
+          <div class="gallery-img-caption">SP FabLab — T11C01</div>
         </div>
         <div class="gallery-img gi-2">
           <div class="gallery-img-inner">
@@ -930,6 +918,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="school-card-body">
           <span class="school-badge badge-node">⬡ Learning Node</span>
           <p class="school-name">Ang Mo Kio Secondary School</p>
+          <p class="school-type">Government Secondary School</p>
           <p class="school-desc">Exploring maker education through SP FabLab learning journeys and the MakerConnect community.</p>
         </div>
       </div>
@@ -941,6 +930,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="school-card-body">
           <span class="school-badge badge-node">⬡ Learning Node</span>
           <p class="school-name">Boon Lay Secondary School</p>
+          <p class="school-type">Government Secondary School</p>
           <p class="school-desc">Building teacher confidence in design-based learning through SP FabLab workshops and training.</p>
         </div>
       </div>
@@ -952,6 +942,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="school-card-body">
           <span class="school-badge badge-node">⬡ Learning Node</span>
           <p class="school-name">Clementi Town Secondary School</p>
+          <p class="school-type">Government Secondary School</p>
           <p class="school-desc">Piloting introductory maker programmes, integrating hands-on design thinking into their curriculum.</p>
         </div>
       </div>
@@ -963,6 +954,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="school-card-body">
           <span class="school-badge badge-node">⬡ Learning Node</span>
           <p class="school-name">Commonwealth Secondary School</p>
+          <p class="school-type">Government Autonomous Secondary School</p>
           <p class="school-desc">Extending their established maker culture through the SP FabLab Maker Education Network.</p>
         </div>
       </div>
@@ -974,6 +966,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="school-card-body">
           <span class="school-badge badge-node">⬡ Learning Node</span>
           <p class="school-name">Peirce Secondary School</p>
+          <p class="school-type">Government Secondary School</p>
           <p class="school-desc">Exploring maker education approaches to support student innovation and design thinking skills.</p>
         </div>
       </div>
@@ -985,6 +978,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="school-card-body">
           <span class="school-badge badge-node">⬡ Learning Node</span>
           <p class="school-name">St. Hilda's Secondary School</p>
+          <p class="school-type">Government-Aided Secondary School</p>
           <p class="school-desc">Participating in SP FabLab learning journeys to explore maker education for their school community.</p>
         </div>
       </div>
@@ -996,6 +990,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="school-card-body">
           <span class="school-badge badge-node">⬡ Learning Node</span>
           <p class="school-name">Yishun Town Secondary School</p>
+          <p class="school-type">Government Secondary School</p>
           <p class="school-desc">Recently onboarded into the network, exploring maker education for enrichment and ALP programmes.</p>
         </div>
       </div>
@@ -1035,7 +1030,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
           <div><h4>No ITQ or Tender Required</h4><p>Schools can engage SP FabLab directly as a G2G partner — for both the Learning Node and Learning Nexus tiers.</p></div>
         </div>
         <div class="join-steps">
-          <div class="join-step"><div class="step-num">1</div><div class="step-text"><h4>Send us an email</h4><p>Reach out to <a href="mailto:aqr-fablab-staff@sp.edu.sg Maker Education Journey" ><span class="__cf_email__" data-cfemail="d5b3b4b7b9b4b795a6a5fbb0b1a0fba6b2">[email&#160;protected]</span></a> with a brief intro about your school's maker education journey.</p></div></div>
+          <div class="join-step"><div class="step-num">1</div><div class="step-text"><h4>Send us an email</h4><p>Reach out to <a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry">us</a> with a brief intro about your school's maker education journey.</p></div></div>
           <div class="join-step"><div class="step-num">2</div><div class="step-text"><h4>Attend a Learning Journey</h4><p>Visit SP FabLab, meet the team, and see what a partnership looks like in practice.</p></div></div>
           <div class="join-step"><div class="step-num">3</div><div class="step-text"><h4>Join as a Learning Node</h4><p>Low commitment, high exposure. Annual and renewable.</p></div></div>
           <div class="join-step"><div class="step-num">4</div><div class="step-text"><h4>Progress to Learning Nexus</h4><p>Deepen your partnership and become a capability anchor in the network.</p></div></div>
@@ -1044,11 +1039,11 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
       <div class="contact-card reveal reveal-delay-2">
         <h3>Contact SP FabLab</h3>
         <p>Happy to answer questions or arrange a visit.</p>
-        <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="mailto:aqr-fablab-staff@sp.edu.sg Make an enquiry" ><span class="__cf_email__" data-cfemail="cbadaaa9a7aaa98bb8bbe5aeafbee5b8ac">[email&#160;protected]</span></a></p></div></div>
+        <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry">aqr-fablab-staff@sp.edu.sg</a></p></div></div>
         <div class="c-row"><span class="c-icon">🌐</span><div><p class="c-label">Website</p><p class="c-val"><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">sp.edu.sg/student-services/fablab</a></p></div></div>
         <div class="c-row"><span class="c-icon">📍</span><div><p class="c-label">Address</p><p class="c-val">Singapore Polytechnic, 500 Dover Road, Singapore 139651</p></div></div>
         <div class="c-row"><span class="c-icon">🕐</span><div><p class="c-label">Opening Hours</p><p class="c-val">Mon–Fri, 9am–5pm (Term &amp; Vacation)</p></div></div>
-        <a href="mailto:aqr-fablab-staff@sp.edu.sg Make an enquiry"  class="btn-red-full">Send an Enquiry →</a>
+        <a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry" class="btn-red-full">Send an Enquiry →</a>
       </div>
     </div>
   </div>
@@ -1081,7 +1076,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <li><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">SP FabLab Page</a></li>
         <li><a href="https://www.sp.edu.sg/pace" target="_blank">SP PACE Academy</a></li>
         <li><a href="https://www.sp.edu.sg" target="_blank">Singapore Polytechnic</a></li>
-        <li><a href="mailto:aqr-fablab-staff@sp.edu.sg">email us</span></a></li>
+        <li><a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry">aqr-fablab-staff@sp.edu.sg</a></li>
       </ul>
     </div>
   </div>
@@ -1095,7 +1090,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── JS loaded flag ──
 document.body.classList.add('js-loaded');
 
