@@ -52,19 +52,6 @@ body{font-family:var(--font);background:var(--dark);color:var(--white);overflow-
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%;height:auto}
 
-#hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: radial-gradient(
-    ellipse 65% 75% at 50% 52%,
-    rgba(0,0,0,0.62) 0%,
-    rgba(0,0,0,0.38) 55%,
-    transparent 100%
-  );
-}
-  
 /* ── NAV ── */
 #nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
@@ -114,9 +101,13 @@ img{display:block;max-width:100%;height:auto}
   min-height:100vh;display:flex;align-items:center;justify-content:center;
   text-align:center;padding:7rem 2rem 5rem;
   position:relative;overflow:hidden;
-  background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(208,2,27,.18) 0%, transparent 65%),
-             url('images/hero-bg.jpg') center/cover no-repeat,
-             var(--dark);
+  background:url('images/hero-bg.jpg') center/cover no-repeat,var(--dark);
+}
+#hero::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 65% 75% at 50% 52%,rgba(0,0,0,0.62) 0%,rgba(0,0,0,0.38) 55%,transparent 100%),
+    linear-gradient(to bottom,rgba(0,0,0,0.45) 0%,rgba(0,0,0,0.15) 50%,rgba(0,0,0,0.55) 100%);
 }
 .hero-grid-bg{
   position:absolute;inset:0;z-index:0;
@@ -139,12 +130,14 @@ img{display:block;max-width:100%;height:auto}
 .hero-h1{
   font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:1.05;
   letter-spacing:-.02em;margin-bottom:1.5rem;
+  text-shadow:0 2px 24px rgba(0,0,0,0.5);
 }
 .hero-h1 .accent{color:var(--red)}
-.hero-h1 .serif{font-family:var(--font-serif);font-weight:400;font-style:italic;color:rgba(255,255,255,.75)}
+.hero-h1 .serif{font-family:var(--font-serif);font-weight:400;font-style:italic;color:rgba(255,255,255,.92)}
 .hero-sub{
-  font-size:1.1rem;color:var(--text-dim);line-height:1.75;
+  font-size:1.1rem;color:rgba(255,255,255,0.88);line-height:1.75;
   max-width:560px;margin:0 auto 2.5rem;
+  text-shadow:0 1px 12px rgba(0,0,0,0.6);
 }
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 .btn-solid{
@@ -416,6 +409,25 @@ img{display:block;max-width:100%;height:auto}
 .school-card:hover{transform:translateY(-2px)}
 .school-card.node{border-top-color:var(--amber)}
 .school-card.nexus{border-top-color:#6B9FEF}
+.school-card{
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  border-top:3px solid var(--border);transition:border-color .2s,transform .25s;
+}
+.school-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.school-card.node{border-top-color:var(--amber)}.school-card.nexus{border-top-color:#6B9FEF}
+.school-card-img{width:100%;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,var(--dark-3),var(--mid));position:relative}
+.school-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.school-card:hover .school-card-img img{transform:scale(1.05)}
+.school-card-body{padding:1.25rem}}
+.school-card-img{
+  width:100%;aspect-ratio:16/9;overflow:hidden;
+  background:linear-gradient(135deg,var(--dark-3),var(--mid));
+  position:relative;
+}
+.school-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.school-card:hover .school-card-img img{transform:scale(1.05)}
+.school-card-body{padding:1.25rem}
 .school-badge{
   display:inline-flex;align-items:center;gap:.35rem;
   font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
@@ -423,7 +435,7 @@ img{display:block;max-width:100%;height:auto}
 }
 .badge-node{background:rgba(245,160,0,.15);color:var(--amber)}
 .badge-nexus{background:rgba(107,159,239,.15);color:#6B9FEF}
-.school-name{font-size:.95rem;font-weight:700;color:white;margin-bottom:.15rem}
+.school-name{font-size:.95rem;font-weight:700;color:white;margin-bottom:.15rem;margin-top:.1rem}
 .school-type{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:.5rem}
 .school-desc{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.6}
 .schools-note{font-size:.78rem;color:rgba(255,255,255,.3);text-align:center;margin-top:1.25rem;font-style:italic}
@@ -578,7 +590,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <span class="accent">Maker Education</span><br/>
         <span class="serif">community for schools</span>
       </h1>
-      <p class="hero-sub">Connecting Singapore schools with the tools, expertise, and partnerships to bring hands-on, design-based learning into every classroom.</p>
+      <p class="hero-sub">Connecting Singapore schools with expertise and community to grow maker education.</p>
       <div class="hero-btns">
         <a href="#join" class="btn-solid">Join the Network</a>
         <a href="#network" class="btn-ghost">Explore the Tiers</a>
@@ -606,7 +618,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
     </div>
     <div class="chevron-divider"></div>
     <div class="chevron-cta">
-      Empowering Schools Through<br/><span>Maker Education</span>
+      Empowering Schools<br/>Through <span>Maker Education</span>
     </div>
   </div>
 </div>
@@ -618,20 +630,19 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
       <div class="about-text reveal">
         <div class="section-tag">About MakerConnect</div>
         <h2 class="section-h2">Empowering Schools Through <span style="color:var(--red)">Hands-On Making</span></h2>
-        <p>MakerConnect is SP FabLab's annual community event and the home of the <strong style="color:white">SP FabLab Maker Education Network</strong> — a structured ecosystem helping Singapore schools explore, adopt, and sustain maker education.</p>
-        <p>In a world shaped by AI, the ability to design, build, and solve real problems becomes the essential human skill. The SP FabLab Maker Education Network gives schools a supported, practical pathway to develop exactly those competencies — without starting from scratch.</p>
+        <p>MakerConnect is SP FabLab's annual event and home of the <strong style="color:white">SP FabLab Maker Education Network</strong> — helping Singapore schools explore, adopt, and sustain maker education.</p>
         <div class="about-pills">
           <div class="about-pill">
             <div class="about-pill-icon">🏛️</div>
-            <div class="about-pill-text"><h4>G2G — No ITQ or Tender Required</h4><p>SP FabLab is a statutory board under MOE. Schools engage directly as a G2G partner for both tiers.</p></div>
+            <div class="about-pill-text"><h4>G2G — No ITQ or Tender</h4><p>Engage SP FabLab directly as a MOE statutory board partner.</p></div>
           </div>
           <div class="about-pill">
             <div class="about-pill-icon">🎓</div>
-            <div class="about-pill-text"><h4>SP Elective Module Pathway</h4><p>Students completing 60 hours may be eligible for elective module exemptions upon SP enrolment.</p></div>
+            <div class="about-pill-text"><h4>SP Elective Module Pathway</h4><p>60 hrs may qualify students for SP elective module exemptions.</p></div>
           </div>
           <div class="about-pill">
             <div class="about-pill-icon">🤝</div>
-            <div class="about-pill-text"><h4>Community of Practice</h4><p>A growing network of educators, school leaders, and maker education champions across Singapore.</p></div>
+            <div class="about-pill-text"><h4>Community of Practice</h4><p>A network of educators and school leaders across Singapore.</p></div>
           </div>
         </div>
       </div>
@@ -650,7 +661,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
     <div class="reveal" style="text-align:center;margin-bottom:.5rem">
       <div class="section-tag" style="justify-content:center">What We Offer</div>
       <h2 class="section-h2">Collaborate, Innovate, <span style="color:var(--red)">Create Impact</span></h2>
-      <p class="section-lead" style="margin:0 auto">Access to SP FabLab's full suite of maker education support — from student programmes to teacher training to space design.</p>
+      <p class="section-lead" style="margin:0 auto">SP FabLab's full suite of maker education support for schools.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card reveal reveal-delay-1">
@@ -659,7 +670,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         </div>
         <div class="feature-card-body">
           <h3>Student Maker Programmes</h3>
-          <p>Hands-on, 3-tier pathways totalling 60 hours — in 5 flexible delivery models suited to different school timetables and ALP structures.</p>
+          <p>3-tier, 60-hour pathways in 5 flexible delivery models — from ALP workshops to holiday intensives.</p>
         </div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
@@ -668,7 +679,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         </div>
         <div class="feature-card-body">
           <h3>Teacher Professional Development</h3>
-          <p>CET-accredited training in digital fabrication and maker pedagogy. SSG-funded and customised options available. Counts towards Learning Nexus status.</p>
+          <p>CET-accredited training in digital fabrication. SSG-funded options available.</p>
         </div>
       </div>
       <div class="feature-card reveal reveal-delay-3">
@@ -677,7 +688,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         </div>
         <div class="feature-card-body">
           <h3>Makerspace Design Support</h3>
-          <p>Advisory consultancy and the SP FabLab Space Design Kit — helping schools plan, visualise, and build effective maker learning environments.</p>
+          <p>Advisory support and the SP FabLab Space Design Kit to plan and build your school makerspace.</p>
         </div>
       </div>
     </div>
@@ -698,7 +709,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="tier-card-head node">
           <div class="tier-tag">Entry Tier · Exploratory · Annual</div>
           <div class="tier-name">Learning Node</div>
-          <div class="tier-desc">For schools at early awareness, exploration, or pilot stage in maker education.</div>
+          <div class="tier-desc">Exploring or piloting maker education for the first time.</div>
         </div>
         <div class="tier-body">
           <div class="tier-section-label">SP FabLab Provides</div>
@@ -721,7 +732,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         <div class="tier-card-head nexus">
           <div class="tier-tag">Strategic Tier · Developmental · Multi-year</div>
           <div class="tier-name">Learning Nexus</div>
-          <div class="tier-desc">For schools committed to institutionalising maker education at curriculum, staff, and infrastructure levels.</div>
+          <div class="tier-desc">Embedding maker education school-wide at curriculum and infrastructure level.</div>
         </div>
         <div class="tier-body">
           <div class="tier-section-label">SP FabLab Provides</div>
@@ -774,7 +785,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
     <div class="reveal">
       <div class="section-tag">Programmes</div>
       <h2 class="section-h2">Flexible Pathways for <span style="color:var(--red)">Every School</span></h2>
-      <p class="section-lead">All student programmes total 60 hours across a 3-tier progression. Choose the delivery model that best fits your school's timetable and goals.</p>
+      <p class="section-lead">60 hours, 3 tiers, 5 delivery models — pick what fits your school.</p>
     </div>
 
     <div class="prog-switcher reveal reveal-delay-1">
@@ -829,7 +840,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
     </div>
 
     <div class="prog-panel" id="prog-teachers">
-      <p style="color:var(--text-dim);font-size:.95rem;margin-bottom:1.5rem">A minimum of <strong style="color:white">5 trained teachers</strong> is required for Learning Nexus status. Both programmes are face-to-face with practical components.</p>
+      <p style="color:var(--text-dim);font-size:.95rem;margin-bottom:1.5rem">Min. <strong style="color:white">5 trained teachers</strong> required for Learning Nexus. Both are F2F with practical components.</p>
       <div class="teacher-grid">
         <div class="teacher-card">
           <div class="teacher-head cet-a"><p class="model-label" style="color:rgba(255,255,255,.45)">Model A · Non-SSG Funded</p><p class="model-name">Digital Fabrication and 3D Creation</p></div>
@@ -864,7 +875,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
       <div class="reveal">
         <div class="section-tag">Gallery</div>
         <h2 class="section-h2">Making Ideas <span style="color:var(--red)">Real</span></h2>
-        <p style="color:var(--text-dim);font-size:.95rem;line-height:1.8;margin-top:1rem">Explore creativity and innovation through hands-on projects, collaboration, and the maker community at SP FabLab.</p>
+        <p style="color:var(--text-dim);font-size:.95rem;line-height:1.8;margin-top:1rem">Hands-on projects, collaboration, and community at SP FabLab.</p>
         <a href="/cdn-cgi/l/email-protection#94f2f5f6f8f5f6d4e7e4baf1f0e1bae7f3" style="display:inline-block;margin-top:1.75rem;padding:.65rem 1.5rem;border:1.5px solid rgba(255,255,255,.2);border-radius:8px;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.7);transition:all .2s" onmouseover="this.style.borderColor='white';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,.2)';this.style.color='rgba(255,255,255,.7)'">Request a Learning Journey →</a>
       </div>
       <div class="gallery-grid reveal reveal-delay-2">
@@ -891,28 +902,82 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
   </div>
 </section>
 
-<!-- ══ SCHOOLS ══ -->
+  <!-- ══ SCHOOLS ══ -->
 <section class="section section-dark" id="schools">
   <div class="container">
     <div class="reveal">
       <div class="section-tag">Network Schools</div>
       <h2 class="section-h2">Schools <span style="color:var(--red)">Making</span> a Difference</h2>
-      <p class="section-lead">A growing community of Singapore schools at every stage of their maker education journey.</p>
+      <p class="section-lead">Schools in our network — each on their own maker education journey.</p>
     </div>
+
+    <!--
+    FILTER BUTTONS — uncomment when Learning Nexus schools are added
     <div class="schools-filter reveal reveal-delay-1">
       <button class="filter-btn active" onclick="filterSchools('all',this)">All Schools</button>
       <button class="filter-btn" onclick="filterSchools('node',this)">⬡ Learning Node</button>
       <button class="filter-btn" onclick="filterSchools('nexus',this)">◆ Learning Nexus</button>
     </div>
-    <div class="schools-grid reveal reveal-delay-2" id="schools-grid">
-      <div class="school-card nexus" data-tier="nexus"><span class="school-badge badge-nexus">◆ Learning Nexus</span><p class="school-name">Placeholder Secondary School</p><p class="school-type">Government Secondary · West Region</p><p class="school-desc">Integrating maker education into their ALP, with students completing the full 60-hour programme and teachers trained in digital fabrication.</p></div>
-      <div class="school-card nexus" data-tier="nexus"><span class="school-badge badge-nexus">◆ Learning Nexus</span><p class="school-name">Placeholder Institution</p><p class="school-type">Independent School · Central Region</p><p class="school-desc">Using the SP FabLab Space Design Kit and UX research to redesign collaborative learning environments across campus.</p></div>
-      <div class="school-card node" data-tier="node"><span class="school-badge badge-node">⬡ Learning Node</span><p class="school-name">Placeholder Primary School</p><p class="school-type">Government Primary · North Region</p><p class="school-desc">Exploring maker education through teacher learning journeys and the MakerConnect community event.</p></div>
-      <div class="school-card node" data-tier="node"><span class="school-badge badge-node">⬡ Learning Node</span><p class="school-name">Placeholder Secondary School</p><p class="school-type">Government Secondary · East Region</p><p class="school-desc">Piloting introductory maker workshops within their CCE programme, building teacher confidence in design-based learning.</p></div>
-      <div class="school-card nexus" data-tier="nexus"><span class="school-badge badge-nexus">◆ Learning Nexus</span><p class="school-name">Placeholder Secondary School</p><p class="school-type">Government Secondary · North-West Region</p><p class="school-desc">Completed first cohort of the 3-tier programme via Model C, with ongoing makerspace development using SP FabLab advisory support.</p></div>
-      <div class="school-card node" data-tier="node"><span class="school-badge badge-node">⬡ Learning Node</span><p class="school-name">Placeholder Junior College</p><p class="school-type">Junior College · Central Region</p><p class="school-desc">Recently onboarded, exploring maker education for enrichment programmes and the MakerConnect annual community event.</p></div>
+    -->
+
+    <div class="schools-grid reveal reveal-delay-1" id="schools-grid">
+
+      <!-- SCHOOL 1 — replace image, name, type, description -->
+      <div class="school-card node" data-tier="node">
+        <div class="school-card-img">
+          <img src="images/school-1.jpg" alt="School 1" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a3a5c,#2d5f8a)';this.style.display='none'"/>
+        </div>
+        <div class="school-card-body">
+          <span class="school-badge badge-node">⬡ Learning Node</span>
+          <p class="school-name">Placeholder Secondary School</p>
+          <p class="school-type">Government Secondary · West Region</p>
+          <p class="school-desc">Exploring maker education through learning journeys and the MakerConnect community event.</p>
+        </div>
+      </div>
+
+      <!-- SCHOOL 2 — replace image, name, type, description -->
+      <div class="school-card node" data-tier="node">
+        <div class="school-card-img">
+          <img src="images/school-2.jpg" alt="School 2" onerror="this.parentElement.style.background='linear-gradient(135deg,#2c1515,#5a2020)';this.style.display='none'"/>
+        </div>
+        <div class="school-card-body">
+          <span class="school-badge badge-node">⬡ Learning Node</span>
+          <p class="school-name">Placeholder Secondary School</p>
+          <p class="school-type">Government Secondary · East Region</p>
+          <p class="school-desc">Piloting introductory maker workshops, building teacher confidence in design-based learning.</p>
+        </div>
+      </div>
+
+      <!-- SCHOOL 3 — replace image, name, type, description -->
+      <div class="school-card node" data-tier="node">
+        <div class="school-card-img">
+          <img src="images/school-3.jpg" alt="School 3" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2c1a,#2d5a2d)';this.style.display='none'"/>
+        </div>
+        <div class="school-card-body">
+          <span class="school-badge badge-node">⬡ Learning Node</span>
+          <p class="school-name">Placeholder Junior College</p>
+          <p class="school-type">Junior College · Central Region</p>
+          <p class="school-desc">Recently onboarded, exploring maker education for enrichment programmes.</p>
+        </div>
+      </div>
+
+      <!--
+      LEARNING NEXUS SCHOOLS — uncomment when ready
+      <div class="school-card nexus" data-tier="nexus">
+        <div class="school-card-img">
+          <img src="images/school-nexus-1.jpg" alt="Nexus School" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1e3d,#1A2E5A)';this.style.display='none'"/>
+        </div>
+        <div class="school-card-body">
+          <span class="school-badge badge-nexus">◆ Learning Nexus</span>
+          <p class="school-name">Placeholder Secondary School</p>
+          <p class="school-type">Government Secondary · West Region</p>
+          <p class="school-desc">Integrating maker education into their ALP with the full 60-hour programme.</p>
+        </div>
+      </div>
+      -->
+
     </div>
-    <p class="schools-note reveal">School names are illustrative placeholders. Contact SP FabLab to learn about current network members.</p>
+    <p class="schools-note reveal">Contact SP FabLab to learn more about joining the network.</p>
   </div>
 </section>
 
@@ -922,7 +987,7 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
     <div class="reveal">
       <div class="section-tag">Get Involved</div>
       <h2 class="section-h2">Get in Touch <span style="color:var(--red)">With Us</span></h2>
-      <p class="section-lead">Whether you are just starting to explore maker education or ready to embed it school-wide, there is a place for you in the network.</p>
+      <p class="section-lead">Starting out or ready to go deep — there's a place for your school in the network.</p>
     </div>
     <div class="join-grid" style="margin-top:3rem">
       <div class="reveal">
@@ -932,14 +997,14 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
         </div>
         <div class="join-steps">
           <div class="join-step"><div class="step-num">1</div><div class="step-text"><h4>Send us an email</h4><p>Reach out to <a href="/cdn-cgi/l/email-protection#c5a3a4a7a9a4a785b6b5eba0a1b0ebb6a2"><span class="__cf_email__" data-cfemail="d5b3b4b7b9b4b795a6a5fbb0b1a0fba6b2">[email&#160;protected]</span></a> with a brief intro about your school's maker education journey.</p></div></div>
-          <div class="join-step"><div class="step-num">2</div><div class="step-text"><h4>Attend a Learning Journey</h4><p>Visit SP FabLab for a guided session — experience the environment, meet the team, and explore what a partnership could look like.</p></div></div>
-          <div class="join-step"><div class="step-num">3</div><div class="step-text"><h4>Join as a Learning Node</h4><p>Start with the Learning Node tier — low commitment, high exposure. Annual and renewable.</p></div></div>
-          <div class="join-step"><div class="step-num">4</div><div class="step-text"><h4>Progress to Learning Nexus</h4><p>As your school's capability deepens, progress to Learning Nexus — becoming a capability anchor in the network.</p></div></div>
+          <div class="join-step"><div class="step-num">2</div><div class="step-text"><h4>Attend a Learning Journey</h4><p>Visit SP FabLab, meet the team, and see what a partnership looks like in practice.</p></div></div>
+          <div class="join-step"><div class="step-num">3</div><div class="step-text"><h4>Join as a Learning Node</h4><p>Low commitment, high exposure. Annual and renewable.</p></div></div>
+          <div class="join-step"><div class="step-num">4</div><div class="step-text"><h4>Progress to Learning Nexus</h4><p>Deepen your partnership and become a capability anchor in the network.</p></div></div>
         </div>
       </div>
       <div class="contact-card reveal reveal-delay-2">
         <h3>Contact SP FabLab</h3>
-        <p>Our team is happy to answer questions, arrange a learning journey, or discuss how a partnership could work for your school.</p>
+        <p>Happy to answer questions or arrange a visit.</p>
         <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="/cdn-cgi/l/email-protection#80e6e1e2ece1e2c0f3f0aee5e4f5aef3e7"><span class="__cf_email__" data-cfemail="cbadaaa9a7aaa98bb8bbe5aeafbee5b8ac">[email&#160;protected]</span></a></p></div></div>
         <div class="c-row"><span class="c-icon">🌐</span><div><p class="c-label">Website</p><p class="c-val"><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">sp.edu.sg/student-services/fablab</a></p></div></div>
         <div class="c-row"><span class="c-icon">📍</span><div><p class="c-label">Address</p><p class="c-val">Singapore Polytechnic, 500 Dover Road, Singapore 139651</p></div></div>
