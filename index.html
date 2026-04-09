@@ -496,8 +496,8 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
 .footer-legal a:hover{color:rgba(255,255,255,.6)}
 
 /* ── SCROLL ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
-.reveal.visible{opacity:1;transform:none}
+.reveal{opacity:1;transform:none;transition:opacity .65s ease,transform .65s ease}.js-loaded .reveal{opacity:0;transform:translateY(28px)}
+.js-loaded .reveal.visible{opacity:1;transform:none}
 .reveal-delay-1{transition-delay:.1s}
 .reveal-delay-2{transition-delay:.2s}
 .reveal-delay-3{transition-delay:.3s}
@@ -979,6 +979,9 @@ footer{background:#060e16;border-top:1px solid var(--border);padding:4rem 0 0}
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── JS loaded flag ──
+document.body.classList.add('js-loaded');
+
 // ── Nav scroll effect ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -1001,4 +1004,43 @@ const io = new IntersectionObserver(entries => {
 sectionEls.forEach(el => io.observe(el));
 
 // ── Scroll reveal ──
-const revealObs = new IntersectionObserver(entr
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Immediately reveal anything already in viewport
+setTimeout(() => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight) el.classList.add('visible');
+  });
+}, 50);
+
+// ── Programme switcher ──
+function switchProg(tab, btn) {
+  document.querySelectorAll('.prog-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.prog-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('prog-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── School filter ──
+function filterSchools(tier, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.school-card').forEach(c => {
+    c.style.display = (tier === 'all' || c.dataset.tier === tier) ? '' : 'none';
+  });
+}
+
+// ── Mobile nav ──
+function toggleMobile() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobile-nav').classList.remove('open');
+}
+</script>
+</body>
+</html>
