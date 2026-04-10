@@ -457,7 +457,8 @@ img { display: block; max-width: 100%; height: auto; }
 .school-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.09); transform: translateY(-2px); }
 .school-card.node { border-top-color: var(--sp-amber); }
 .school-card.nexus { border-top-color: var(--sp-navy); }
-.school-card-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--sp-grey-100); }
+.school-card-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--sp-grey-100);   min-height: 130px;
+}
 .school-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
 .school-card:hover .school-card-img img { transform: scale(1.04); }
 .school-card-body { padding: 1.1rem; }
@@ -552,12 +553,20 @@ img { display: block; max-width: 100%; height: auto; }
 .sp-footer-legal a { font-size: .76rem; color: rgba(255,255,255,.3); transition: color .2s; }
 .sp-footer-legal a:hover { color: rgba(255,255,255,.65); text-decoration: none; }
 
+/* ── FILTER BUTTONS ── */
+.filter-btn{
+  padding:.42rem .95rem;border-radius:20px;font-size:.82rem;font-weight:600;
+  border:1px solid var(--sp-grey-300);color:var(--sp-grey-700);
+  cursor:pointer;background:var(--sp-white);font-family:var(--sp-font);
+  transition:all .2s;
+}
+.filter-btn:hover{border-color:var(--sp-red);color:var(--sp-red)}
+.filter-btn.active{background:var(--sp-red)!important;color:white!important;border-color:var(--sp-red)!important}
+
 /* ─────────────────────────────────────────────────────────
    SCROLL REVEAL  (graceful degradation)
 ───────────────────────────────────────────────────────── */
-.reveal { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
-.js-loaded .reveal { opacity: 0; transform: translateY(20px); }
-.js-loaded .reveal.visible { opacity: 1; transform: none; }
+.reveal { opacity: 1; transform: none; }
 .reveal-d1 { transition-delay: .1s; }
 .reveal-d2 { transition-delay: .2s; }
 .reveal-d3 { transition-delay: .3s; }
@@ -607,7 +616,7 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="inner">
     <a href="https://www.sp.edu.sg" target="_blank">SP Website</a>
     <a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">SP FabLab</a>
-    <a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry">Contact Us</a>
+    <a href="/cdn-cgi/l/email-protection#6b0a1a19460d0a09070a0946181f0a0d0d2b181b450e0f1e45180c54181e09010e081f56260a000e4e595b0a054e595b2e051a1e021912">Contact Us</a>
   </div>
 </div>
 
@@ -882,7 +891,7 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="model-card"><div class="model-head m-d"><p class="model-label">Model D</p><p class="model-name">Modular Workshop</p><p class="model-sub">CCA-friendly</p></div><div class="model-body"><div class="model-row"><span class="model-key">Duration</span><span>3 × 15 hrs + 1 × 15 hr Capstone = 60 hrs</span></div><div class="model-row"><span class="model-key">Schedule</span><span>Jan → Nov</span></div><div class="model-row"><span class="model-key">Ideal for</span><span>CCA-run maker education</span></div></div></div>
           <div class="model-card"><div class="model-head m-e"><p class="model-label">Model E</p><p class="model-name">Vacation Workshop</p><p class="model-sub">Holiday intensive</p></div><div class="model-body"><div class="model-row"><span class="model-key">Duration</span><span>60 hrs over 2 holiday weeks</span></div><div class="model-row"><span class="model-key">Schedule</span><span>Mar, Jun, Sep, Nov holidays</span></div><div class="model-row"><span class="model-key">Hours</span><span>Mon–Fri, 9am–4pm</span></div></div></div>
         </div>
-        <div class="sp-amber-box">✱ Students completing 60 hours may be eligible for SP elective module exemptions. <a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry">Reach out to us</a> to discuss minor customisation for any model.</div>
+        <div class="sp-amber-box">✱ Students completing 60 hours may be eligible for SP elective module exemptions. <a href="/cdn-cgi/l/email-protection#24455556094245464845460957504542426457540a4140510a57431b5751464e4147501969454f41011614454a011614614a55514d565d">Reach out to us</a> to discuss minor customisation for any model.</div>
       </div>
 
       <div class="prog-panel" id="prog-teachers">
@@ -904,7 +913,7 @@ img { display: block; max-width: 100%; height: auto; }
       <div class="reveal">
         <h2 class="gallery-text" style="font-size:1.5rem;font-weight:700;color:white;padding-bottom:.65rem;border-bottom:3px solid var(--sp-red);margin-bottom:1rem">Making Ideas Real</h2>
         <p class="gallery-text" style="font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.75">Hands-on projects, collaboration, and community at SP FabLab.</p>
-        <a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry" class="btn-ghost-white">Request a Learning Journey →</a>
+        <a href="/cdn-cgi/l/email-protection#e6879794cb8087848a8784cb9592878080a69596c8838293c89581d99593848c838592dbab878d83c3d4d68788c3d4d6a38897938f949f" class="btn-ghost-white">Request a Learning Journey →</a>
       </div>
       <div class="gallery-grid reveal reveal-d2">
         <div class="gallery-img gi-1"><div class="gallery-img-inner"></div><div class="gallery-caption">SP FabLab — Makerspace</div></div>
@@ -922,14 +931,11 @@ img { display: block; max-width: 100%; height: auto; }
       <h2 class="sp-h2 reveal">Network Schools</h2>
       <p class="sp-p reveal">Schools in our network — each on their own maker education journey.</p>
 
-      <!--
-      FILTER BUTTONS — uncomment when Learning Nexus schools are added
-      <div class="schools-filter" style="display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap">
-        <button onclick="filterSchools('all',this)" style="...">All Schools</button>
-        <button onclick="filterSchools('node',this)" style="...">⬡ Learning Node</button>
-        <button onclick="filterSchools('nexus',this)" style="...">◆ Learning Nexus</button>
+            <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap">
+        <button onclick="filterSchools('all',this)" class="filter-btn active">All Schools</button>
+        <button onclick="filterSchools('node',this)" class="filter-btn">⬡ Learning Node</button>
+        <button onclick="filterSchools('nexus',this)" class="filter-btn">◆ Learning Nexus</button>
       </div>
-      -->
 
       <div class="schools-grid reveal reveal-d1" id="schools-grid">
 
@@ -939,19 +945,17 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="school-card-body">
             <span class="school-badge badge-node">⬡ Learning Node</span>
             <p class="school-name">Ang Mo Kio Secondary School</p>
-            <p class="school-type">Government Secondary School</p>
             <p class="school-desc">Exploring maker education through SP FabLab learning journeys and the MakerConnect community.</p>
           </div>
         </div>
 
-        <!-- SCHOOL 2: Boon Lay Secondary School — image: images/school-boon-lay.jpg (800×450px) -->
-        <div class="school-card node" data-tier="node">
-          <div class="school-card-img"><img src="images/school-boon-lay.jpg" alt="Boon Lay Secondary School" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2c3a,#2d4a5f)';this.style.display='none'"/></div>
+        <!-- SCHOOL 2: Boon Lay Secondary School — Learning Nexus — image: images/school-boon-lay.jpg (800×450px) -->
+        <div class="school-card nexus" data-tier="nexus">
+          <div class="school-card-img"><img src="images/school-boon-lay.jpg" alt="Boon Lay Secondary School" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1e3d,#1A2E5A)';this.style.display='none'"/></div>
           <div class="school-card-body">
-            <span class="school-badge badge-node">⬡ Learning Node</span>
+            <span class="school-badge badge-nexus">◆ Learning Nexus</span>
             <p class="school-name">Boon Lay Secondary School</p>
-            <p class="school-type">Government Secondary School</p>
-            <p class="school-desc">Building teacher confidence in design-based learning through SP FabLab workshops and training.</p>
+            <p class="school-desc">Integrating maker education school-wide, with students completing the full 60-hour programme and teachers trained in digital fabrication.</p>
           </div>
         </div>
 
@@ -961,7 +965,6 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="school-card-body">
             <span class="school-badge badge-node">⬡ Learning Node</span>
             <p class="school-name">Clementi Town Secondary School</p>
-            <p class="school-type">Government Secondary School</p>
             <p class="school-desc">Piloting introductory maker programmes, integrating hands-on design thinking into their curriculum.</p>
           </div>
         </div>
@@ -972,7 +975,6 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="school-card-body">
             <span class="school-badge badge-node">⬡ Learning Node</span>
             <p class="school-name">Commonwealth Secondary School</p>
-            <p class="school-type">Government Autonomous Secondary School</p>
             <p class="school-desc">Extending their established maker culture through the SP FabLab Maker Education Network.</p>
           </div>
         </div>
@@ -983,7 +985,6 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="school-card-body">
             <span class="school-badge badge-node">⬡ Learning Node</span>
             <p class="school-name">Peirce Secondary School</p>
-            <p class="school-type">Government Secondary School</p>
             <p class="school-desc">Exploring maker education approaches to support student innovation and design thinking skills.</p>
           </div>
         </div>
@@ -994,7 +995,6 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="school-card-body">
             <span class="school-badge badge-node">⬡ Learning Node</span>
             <p class="school-name">St. Hilda's Secondary School</p>
-            <p class="school-type">Government-Aided Secondary School</p>
             <p class="school-desc">Participating in SP FabLab learning journeys to explore maker education for their school community.</p>
           </div>
         </div>
@@ -1005,24 +1005,10 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="school-card-body">
             <span class="school-badge badge-node">⬡ Learning Node</span>
             <p class="school-name">Yishun Town Secondary School</p>
-            <p class="school-type">Government Secondary School</p>
             <p class="school-desc">Recently onboarded into the network, exploring maker education for enrichment and ALP programmes.</p>
           </div>
         </div>
-
-        <!--
-        LEARNING NEXUS SCHOOLS — uncomment when ready
-        <div class="school-card nexus" data-tier="nexus">
-          <div class="school-card-img"><img src="images/school-nexus-1.jpg" alt="Nexus School" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1e3d,#1A2E5A)';this.style.display='none'"/></div>
-          <div class="school-card-body">
-            <span class="school-badge badge-nexus">◆ Learning Nexus</span>
-            <p class="school-name">School Name</p>
-            <p class="school-type">School Type</p>
-            <p class="school-desc">Description of partnership and programmes.</p>
-          </div>
-        </div>
-        -->
-      </div>
+</div>
       <p class="schools-note reveal">Contact SP FabLab to learn more about joining the network.</p>
     </div>
   </div>
@@ -1041,7 +1027,7 @@ img { display: block; max-width: 100%; height: auto; }
             <span class="icon">✅</span>
             <div><h4>No ITQ or Tender Required</h4><p>Schools can engage SP FabLab directly as a G2G partner — for both the Learning Node and Learning Nexus tiers.</p></div>
           </div>
-          <div class="join-step"><div class="join-step-num">1</div><div class="join-step-text"><h4>Reach out to us</h4><p><a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry">Contact us</a> with a brief intro about your school's maker education journey.</p></div></div>
+          <div class="join-step"><div class="join-step-num">1</div><div class="join-step-text"><h4>Reach out to us</h4><p><a href="/cdn-cgi/l/email-protection#cdacbcbfe0abacafa1acafe0beb9acabab8dbebde3a8a9b8e3beaaf2beb8afa7a8aeb9f080aca6a8e8fffdaca3e8fffd88a3bcb8a4bfb4">Contact us</a> with a brief intro about your school's maker education journey.</p></div></div>
           <div class="join-step"><div class="join-step-num">2</div><div class="join-step-text"><h4>Attend a Learning Journey</h4><p>Visit SP FabLab, meet the team, and see what a partnership looks like in practice.</p></div></div>
           <div class="join-step"><div class="join-step-num">3</div><div class="join-step-text"><h4>Join as a Learning Node</h4><p>Low commitment, high exposure. Annual and renewable.</p></div></div>
           <div class="join-step"><div class="join-step-num">4</div><div class="join-step-text"><h4>Progress to Learning Nexus</h4><p>Deepen your partnership and become a capability anchor in the network.</p></div></div>
@@ -1049,11 +1035,11 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="contact-card reveal reveal-d2">
           <h3>Contact SP FabLab</h3>
           <p>Happy to answer questions or arrange a visit.</p>
-          <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry">aqr-fablab-staff@sp.edu.sg</a></p></div></div>
+          <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="/cdn-cgi/l/email-protection#1a7b6b68377c7b78767b7837696e7b7c7c5a696a347f7e6f34697d25696f78707f796e27577b717f3f282a7b743f282a5f746b6f736863">aqr-fablab-staff@sp.edu.sg</a></p></div></div>
           <div class="c-row"><span class="c-icon">🌐</span><div><p class="c-label">Website</p><p class="c-val"><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">sp.edu.sg/student-services/fablab</a></p></div></div>
           <div class="c-row"><span class="c-icon">📍</span><div><p class="c-label">Address</p><p class="c-val">Singapore Polytechnic, 500 Dover Road, Singapore 139651</p></div></div>
           <div class="c-row"><span class="c-icon">🕐</span><div><p class="c-label">Opening Hours</p><p class="c-val">Mon–Fri, 9am–5pm (Term &amp; Vacation)</p></div></div>
-          <a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry" class="btn-red-block">Send an Enquiry →</a>
+          <a href="/cdn-cgi/l/email-protection#dbbaaaa9f6bdbab9b7bab9f6a8afbabdbd9ba8abf5bebfaef5a8bce4a8aeb9b1beb8afe696bab0befee9ebbab5fee9eb9eb5aaaeb2a9a2" class="btn-red-block">Send an Enquiry →</a>
         </div>
       </div>
     </div>
@@ -1087,7 +1073,7 @@ img { display: block; max-width: 100%; height: auto; }
         <li><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">SP FabLab Page</a></li>
         <li><a href="https://www.sp.edu.sg/pace" target="_blank">SP PACE Academy</a></li>
         <li><a href="https://www.sp.edu.sg" target="_blank">Singapore Polytechnic</a></li>
-        <li><a href="mailto:aqr-fablab-staff@sp.edu.sg?subject=Make%20an%20Enquiry">aqr-fablab-staff@sp.edu.sg</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#731202015e1512111f12115e00071215153300035d1617065d00144c000611191610074e3e121816564143121d564143361d02061a010a">aqr-fablab-staff@sp.edu.sg</a></li>
       </ul>
     </div>
   </div>
@@ -1102,9 +1088,6 @@ img { display: block; max-width: 100%; height: auto; }
 </footer>
 
 <script>
-// ── JS flag for reveal animations ──
-document.body.classList.add('js-loaded');
-
 // ── Sticky nav scroll ──
 const nav = document.getElementById('sp-nav');
 if (nav) {
@@ -1158,15 +1141,18 @@ function filterSchools(tier, btn) {
 }
 
 // ── Scroll reveal ──
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-setTimeout(() => {
-  document.querySelectorAll('.reveal').forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-  });
-}, 60);
+document.querySelectorAll('.reveal').forEach(el => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  obs.observe(el);
+});
 
 // ── Mobile nav ──
 function toggleMobile() { document.getElementById('sp-mobile-menu').classList.toggle('open'); }
