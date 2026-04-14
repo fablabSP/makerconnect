@@ -88,7 +88,7 @@ img { display: block; max-width: 100%; height: auto; }
 .sp-nav .inner {
   max-width: var(--sp-max); margin: 0 auto; padding: 0 1.5rem;
   display: flex; align-items: center; justify-content: space-between;
-  height: 64px;
+  height: 80px;
 }
 .sp-nav-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
 .sp-nav-logo img { height: 36px; width: auto; }
@@ -108,7 +108,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .sp-nav-links { display: flex; gap: 0; list-style: none; }
 .sp-nav-links a {
-  display: flex; align-items: center; padding: 0 .9rem; height: 64px;
+  display: flex; align-items: center; padding: 0 .9rem; height: 80px;
   font-size: .875rem; font-weight: 600; color: var(--sp-grey-700);
   border-bottom: 3px solid transparent; transition: color .2s, border-color .2s;
 }
@@ -611,7 +611,7 @@ img { display: block; max-width: 100%; height: auto; }
      This file contains only the page CONTENT blocks.
      The nav + footer here are for standalone preview only.
 ═══════════════════════════════════════════════════════════ -->
-<!--<p class="cms-note">⚠️ Preview mode — SP header and footer are rendered by the CMS in production. Content starts at the hero banner.</p>-->
+<p class="cms-note">⚠️ Preview mode — SP header and footer are rendered by the CMS in production. Content starts at the hero banner.</p>
 
 <!-- ── SP TOPBAR (CMS renders) ── -->
 <div class="sp-topbar">
@@ -626,7 +626,7 @@ img { display: block; max-width: 100%; height: auto; }
 <nav class="sp-nav" id="sp-nav">
   <div class="inner">
     <a href="#top" class="sp-nav-logo-placeholder" style="text-decoration:none">
-      <img src="images/fablab-logo.jpg" alt="SP FabLab" style="height:40px;width:auto;display:block;max-width:180px;object-fit:contain"
+      <img src="images/fablab-logo.jpg" alt="SP FabLab" style="height:68px;width:auto;display:block;object-fit:contain"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
       <span style="display:none;align-items:center;gap:.5rem">
         <span class="sp-badge">SP</span>
@@ -1110,7 +1110,7 @@ function setTab(id) {
   if (btn) btn.classList.add('active');
   const el = document.getElementById(id);
   if (el) {
-    const offset = el.getBoundingClientRect().top + window.scrollY - 110;
+    const offset = el.getBoundingClientRect().top + window.scrollY - 96;
     window.scrollTo({ top: offset, behavior: 'smooth' });
   }
   return false;
