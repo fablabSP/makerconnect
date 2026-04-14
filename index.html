@@ -108,7 +108,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .sp-nav-links { display: flex; gap: 0; list-style: none; }
 .sp-nav-links a {
-  display: block; padding: 0 .9rem; height: 64px; line-height: 64px;
+  display: flex; align-items: center; padding: 0 .9rem; height: 64px;
   font-size: .875rem; font-weight: 600; color: var(--sp-grey-700);
   border-bottom: 3px solid transparent; transition: color .2s, border-color .2s;
 }
@@ -116,12 +116,14 @@ img { display: block; max-width: 100%; height: auto; }
 .sp-nav-links a.active { color: var(--sp-red); border-bottom-color: var(--sp-red); }
 .sp-nav-cta {
   background: var(--sp-red) !important; color: white !important;
-  padding: .5rem 1.2rem !important; border-radius: 4px;
-  height: auto !important; line-height: normal !important;
-  border-bottom: none !important; margin-left: .5rem;
+  padding: .55rem 1.25rem !important; border-radius: 4px;
+  height: auto !important; line-height: 1.4 !important;
+  border-bottom: none !important; margin-left: .75rem;
+  display: inline-flex !important; align-items: center !important;
+  align-self: center !important;
   transition: background .2s !important;
 }
-.sp-nav-cta:hover { background: var(--sp-red-dark) !important; }
+.sp-nav-cta:hover { background: var(--sp-red-dark) !important; text-decoration: none !important; }
 .sp-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
 .sp-hamburger span { width: 22px; height: 2px; background: var(--sp-grey-700); border-radius: 2px; }
 .sp-mobile-menu { display: none; background: var(--sp-white); border-top: 1px solid var(--sp-grey-200); }
@@ -609,6 +611,7 @@ img { display: block; max-width: 100%; height: auto; }
      This file contains only the page CONTENT blocks.
      The nav + footer here are for standalone preview only.
 ═══════════════════════════════════════════════════════════ -->
+<p class="cms-note">⚠️ Preview mode — SP header and footer are rendered by the CMS in production. Content starts at the hero banner.</p>
 
 <!-- ── SP TOPBAR (CMS renders) ── -->
 <div class="sp-topbar">
@@ -622,10 +625,14 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- ── SP NAV (CMS renders) ── -->
 <nav class="sp-nav" id="sp-nav">
   <div class="inner">
-    <div class="sp-nav-logo-placeholder">
-      <span class="sp-badge">SP</span>
-      <span class="sp-name">Singapore Polytechnic</span>
-    </div>
+    <a href="#top" class="sp-nav-logo-placeholder" style="text-decoration:none">
+      <img src="images/fablab-logo.jpg" alt="SP FabLab" style="height:40px;width:auto;display:block;max-width:180px;object-fit:contain"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <span style="display:none;align-items:center;gap:.5rem">
+        <span class="sp-badge">SP</span>
+        <span class="sp-name">Singapore Polytechnic</span>
+      </span>
+    </a>
     <ul class="sp-nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#network">The Network</a></li>
@@ -1034,7 +1041,7 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="contact-card reveal reveal-d2">
           <h3>Contact SP FabLab</h3>
           <p>Happy to answer questions or arrange a visit.</p>
-          <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="/cdn-cgi/l/email-protection#1a7b6b68377c7b78767b7837696e7b7c7c5a696a347f7e6f34697d25696f78707f796e27577b717f3f282a7b743f282a5f746b6f736863">aqr-fablab-staff@sp.edu.sg</a></p></div></div>
+          <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="/cdn-cgi/l/email-protection#1a7b6b68377c7b78767b7837696e7b7c7c5a696a347f7e6f34697d25696f78707f796e27577b717f3f282a7b743f282a5f746b6f736863"><span class="__cf_email__" data-cfemail="99f8e8ebb4fff8fbf5f8fbb4eaedf8ffffd9eae9b7fcfdecb7eafe">[email&#160;protected]</span></a></p></div></div>
           <div class="c-row"><span class="c-icon">🌐</span><div><p class="c-label">Website</p><p class="c-val"><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">sp.edu.sg/student-services/fablab</a></p></div></div>
           <div class="c-row"><span class="c-icon">📍</span><div><p class="c-label">Address</p><p class="c-val">Singapore Polytechnic, 500 Dover Road, Singapore 139651</p></div></div>
           <div class="c-row"><span class="c-icon">🕐</span><div><p class="c-label">Opening Hours</p><p class="c-val">Mon–Fri, 9am–5pm (Term &amp; Vacation)</p></div></div>
@@ -1072,7 +1079,7 @@ img { display: block; max-width: 100%; height: auto; }
         <li><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">SP FabLab Page</a></li>
         <li><a href="https://www.sp.edu.sg/pace" target="_blank">SP PACE Academy</a></li>
         <li><a href="https://www.sp.edu.sg" target="_blank">Singapore Polytechnic</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#731202015e1512111f12115e00071215153300035d1617065d00144c000611191610074e3e121816564143121d564143361d02061a010a">aqr-fablab-staff@sp.edu.sg</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#731202015e1512111f12115e00071215153300035d1617065d00144c000611191610074e3e121816564143121d564143361d02061a010a"><span class="__cf_email__" data-cfemail="066777742b6067646a67642b757267606046757628636273287561">[email&#160;protected]</span></a></li>
       </ul>
     </div>
   </div>
@@ -1086,7 +1093,7 @@ img { display: block; max-width: 100%; height: auto; }
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Sticky nav scroll ──
 const nav = document.getElementById('sp-nav');
 if (nav) {
@@ -1147,15 +1154,4 @@ document.querySelectorAll('.reveal').forEach(el => {
         e.target.style.opacity = '1';
         e.target.style.transform = 'none';
         obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  obs.observe(el);
-});
-
-// ── Mobile nav ──
-function toggleMobile() { document.getElementById('sp-mobile-menu').classList.toggle('open'); }
-function closeMobile() { document.getElementById('sp-mobile-menu').classList.remove('open'); }
-</script>
-</body>
-</html>
+   
