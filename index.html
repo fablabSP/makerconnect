@@ -88,7 +88,7 @@ img { display: block; max-width: 100%; height: auto; }
 .sp-nav .inner {
   max-width: var(--sp-max); margin: 0 auto; padding: 0 1.5rem;
   display: flex; align-items: center; justify-content: space-between;
-  height: 80px;
+  height: 136px;
 }
 .sp-nav-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
 .sp-nav-logo img { height: 36px; width: auto; }
@@ -106,26 +106,27 @@ img { display: block; max-width: 100%; height: auto; }
 .sp-nav-logo-placeholder .sp-name {
   font-size: 1.05rem; font-weight: 700; color: var(--sp-grey-900);
 }
-.sp-nav-links { display: flex; gap: 0; list-style: none; }
+.sp-nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
 .sp-nav-links a {
-  display: flex; align-items: center; padding: 0 .9rem; height: 80px;
+  display: flex; align-items: center; padding: 0 .9rem; height: 136px;
   font-size: .875rem; font-weight: 600; color: var(--sp-grey-700);
   border-bottom: 3px solid transparent; transition: color .2s, border-color .2s;
 }
+.sp-nav-links li { display: flex; align-items: center; height: 136px; }
 .sp-nav-links a:hover { color: var(--sp-red); text-decoration: none; border-bottom-color: var(--sp-red); }
 .sp-nav-links a.active { color: var(--sp-red); border-bottom-color: var(--sp-red); }
 .sp-nav-cta {
   background: var(--sp-red) !important; color: white !important;
-  padding: .55rem 1.25rem !important; border-radius: 4px;
+  padding: .6rem 1.25rem !important; border-radius: 4px;
   height: auto !important; line-height: 1.4 !important;
   border-bottom: none !important; margin-left: .75rem;
   display: inline-flex !important; align-items: center !important;
-  align-self: center !important;
+  white-space: nowrap !important;
   transition: background .2s !important;
 }
 .sp-nav-cta:hover { background: var(--sp-red-dark) !important; text-decoration: none !important; }
 .sp-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
-.sp-hamburger span { width: 22px; height: 2px; background: var(--sp-grey-700); border-radius: 2px; }
+.sp-hamburger span { width: 24px; height: 2px; background: var(--sp-grey-700); border-radius: 2px; }
 .sp-mobile-menu { display: none; background: var(--sp-white); border-top: 1px solid var(--sp-grey-200); }
 .sp-mobile-menu.open { display: block; }
 .sp-mobile-menu a { display: block; padding: .85rem 1.5rem; font-size: .9rem; font-weight: 600; color: var(--sp-grey-700); border-bottom: 1px solid var(--sp-grey-100); }
@@ -611,7 +612,7 @@ img { display: block; max-width: 100%; height: auto; }
      This file contains only the page CONTENT blocks.
      The nav + footer here are for standalone preview only.
 ═══════════════════════════════════════════════════════════ -->
-<!--<p class="cms-note">⚠️ Preview mode — SP header and footer are rendered by the CMS in production. Content starts at the hero banner.</p>-->
+<p class="cms-note">⚠️ Preview mode — SP header and footer are rendered by the CMS in production. Content starts at the hero banner.</p>
 
 <!-- ── SP TOPBAR (CMS renders) ── -->
 <div class="sp-topbar">
@@ -626,7 +627,7 @@ img { display: block; max-width: 100%; height: auto; }
 <nav class="sp-nav" id="sp-nav">
   <div class="inner">
     <a href="#top" class="sp-nav-logo-placeholder" style="text-decoration:none">
-      <img src="images/fablab-logo.jpg" alt="SP FabLab" style="height:68px;width:auto;display:block;object-fit:contain"
+      <img src="images/fablab-logo.jpg" alt="SP FabLab" style="height:120px;width:auto;display:block;object-fit:contain"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
       <span style="display:none;align-items:center;gap:.5rem">
         <span class="sp-badge">SP</span>
