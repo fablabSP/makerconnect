@@ -633,16 +633,16 @@ img { display: block; max-width: 100%; height: auto; }
       <li><a href="#schools">Schools</a></li>
       <li><a href="#join" class="sp-nav-cta">Join the Network</a></li>
     </ul>
-    <div class="sp-hamburger" id="sp-hamburger" onclick="toggleMobile()">
+    <div class="sp-hamburger" id="sp-hamburger" id="sp-hamburger-btn">
       <span></span><span></span><span></span>
     </div>
   </div>
   <div class="sp-mobile-menu" id="sp-mobile-menu">
-    <a href="#about" onclick="closeMobile()">About</a>
-    <a href="#network" onclick="closeMobile()">The Network</a>
-    <a href="#programmes" onclick="closeMobile()">Programmes</a>
-    <a href="#schools" onclick="closeMobile()">Schools</a>
-    <a href="#join" onclick="closeMobile()">Join the Network</a>
+    <a href="#about" data-close-mobile="1">About</a>
+    <a href="#network" data-close-mobile="1">The Network</a>
+    <a href="#programmes" data-close-mobile="1">Programmes</a>
+    <a href="#schools" data-close-mobile="1">Schools</a>
+    <a href="#join" data-close-mobile="1">Join the Network</a>
   </div>
 </nav>
 
@@ -699,11 +699,11 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- ── PAGE TABS ── -->
 <div class="sp-tabs-bar">
   <div class="inner">
-    <button class="sp-tab active" onclick="setTab('about')">About MakerConnect</button>
-    <button class="sp-tab" onclick="setTab('network')">Learning Node &amp; Nexus</button>
-    <button class="sp-tab" onclick="setTab('programmes')">Programmes</button>
-    <button class="sp-tab" onclick="setTab('schools')">Network Schools</button>
-    <button class="sp-tab" onclick="setTab('join')">How to Join</button>
+    <button class="sp-tab active" data-tab="about">About MakerConnect</button>
+    <button class="sp-tab" data-tab="network">Learning Node &amp; Nexus</button>
+    <button class="sp-tab" data-tab="programmes">Programmes</button>
+    <button class="sp-tab" data-tab="schools">Network Schools</button>
+    <button class="sp-tab" data-tab="join">How to Join</button>
   </div>
 </div>
 
@@ -877,8 +877,8 @@ img { display: block; max-width: 100%; height: auto; }
       <p class="sp-p reveal">SP FabLab offers flexible, structured programmes for both students and teachers. All student programmes total <strong>60 hours</strong> across a 3-tier progression.</p>
 
       <div class="prog-tabs reveal">
-        <button class="prog-tab active" onclick="switchProg('students',this)">Student Programmes</button>
-        <button class="prog-tab" onclick="switchProg('teachers',this)">Teacher Training</button>
+        <button class="prog-tab active" data-prog="students">Student Programmes</button>
+        <button class="prog-tab" data-prog="teachers">Teacher Training</button>
       </div>
 
       <div class="prog-panel active" id="prog-students">
@@ -931,9 +931,9 @@ img { display: block; max-width: 100%; height: auto; }
       <p class="sp-p reveal">Schools in our network — each on their own maker education journey.</p>
 
             <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap">
-        <button onclick="filterSchools('all',this)" class="filter-btn active">All Schools</button>
-        <button onclick="filterSchools('node',this)" class="filter-btn">⬡ Learning Node</button>
-        <button onclick="filterSchools('nexus',this)" class="filter-btn">◆ Learning Nexus</button>
+        <button data-filter="all" class="filter-btn active">All Schools</button>
+        <button data-filter="node" class="filter-btn">⬡ Learning Node</button>
+        <button data-filter="nexus" class="filter-btn">◆ Learning Nexus</button>
       </div>
 
       <div class="schools-grid reveal reveal-d1" id="schools-grid">
@@ -1059,12 +1059,12 @@ img { display: block; max-width: 100%; height: auto; }
     <div class="sp-footer-col">
       <h5>On This Page</h5>
       <ul>
-        <li><a href="#about" onclick="setTab('about')">About MakerConnect</a></li>
-        <li><a href="#offer" onclick="setTab('offer')">What We Offer</a></li>
-        <li><a href="#network" onclick="setTab('network')">The Network</a></li>
-        <li><a href="#programmes" onclick="setTab('programmes')">Programmes</a></li>
-        <li><a href="#schools" onclick="setTab('schools')">Network Schools</a></li>
-        <li><a href="#join" onclick="setTab('join')">How to Join</a></li>
+        <li><a href="#about" data-tab="about">About MakerConnect</a></li>
+        <li><a href="#offer" data-tab="offer">What We Offer</a></li>
+        <li><a href="#network" data-tab="network">The Network</a></li>
+        <li><a href="#programmes" data-tab="programmes">Programmes</a></li>
+        <li><a href="#schools" data-tab="schools">Network Schools</a></li>
+        <li><a href="#join" data-tab="join">How to Join</a></li>
       </ul>
     </div>
     <div class="sp-footer-col">
@@ -1088,72 +1088,104 @@ img { display: block; max-width: 100%; height: auto; }
 </footer>
 
 <script>
-// ── Sticky nav scroll ──
-const nav = document.getElementById('sp-nav');
+(function() {
+
+// ── Sticky nav shadow ──
+var nav = document.getElementById('sp-nav');
 if (nav) {
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', function() {
     nav.style.boxShadow = window.scrollY > 20 ? '0 2px 8px rgba(0,0,0,.1)' : '';
   });
 }
 
-// ── Tab switching ──
+// ── setTab ──
 function setTab(id) {
-  document.querySelectorAll('.sp-tab').forEach(t => t.classList.remove('active'));
-  const btn = document.querySelector(`.sp-tab[onclick="setTab('${id}')"]`);
+  document.querySelectorAll('.sp-tab').forEach(function(t) { t.classList.remove('active'); });
+  var btn = document.querySelector('[data-tab="' + id + '"].sp-tab');
   if (btn) btn.classList.add('active');
-  const el = document.getElementById(id);
+  var el = document.getElementById(id);
   if (el) {
-    const offset = el.getBoundingClientRect().top + window.scrollY - 96;
+    var offset = el.getBoundingClientRect().top + window.scrollY - 96;
     window.scrollTo({ top: offset, behavior: 'smooth' });
   }
 }
 
+// ── Tab buttons ──
+document.querySelectorAll('[data-tab]').forEach(function(btn) {
+  btn.addEventListener('click', function() { setTab(this.dataset.tab); });
+});
+
 // ── Active tab on scroll ──
-const watchIds = ['about','offer','network','programmes','schools','join'];
-const tabObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      document.querySelectorAll('.sp-tab').forEach(t => t.classList.remove('active'));
-      const btn = document.querySelector(`.sp-tab[onclick="setTab('${e.target.id}')"]`);
-      if (btn) btn.classList.add('active');
-    }
-  });
-}, { rootMargin: '-20% 0px -70% 0px' });
-watchIds.forEach(id => { const el = document.getElementById(id); if (el) tabObs.observe(el); });
-
-// ── Programme sub-tabs ──
-function switchProg(tab, btn) {
-  document.querySelectorAll('.prog-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.prog-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('prog-' + tab).classList.add('active');
-  btn.classList.add('active');
-}
-
-// ── School filter ──
-function filterSchools(tier, btn) {
-  document.querySelectorAll('.filter-b
-  document.querySelectorAll('.school-card').forEach(c => {
-    c.style.display = (tier === 'all' || c.dataset.tier === tier) ? '' : 'none';
-  });
-}
-
-// ── Scroll reveal ──
-document.querySelectorAll('.reveal').forEach(el => {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+var watchIds = ['about','offer','network','programmes','schools','join'];
+if ('IntersectionObserver' in window) {
+  var tabObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
       if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'none';
-        obs.unobserve(e.target);
+        document.querySelectorAll('.sp-tab').forEach(function(t) { t.classList.remove('active'); });
+        var btn = document.querySelector('[data-tab="' + e.target.id + '"].sp-tab');
+        if (btn) btn.classList.add('active');
       }
     });
-  }, { threshold: 0.08 });
-  obs.observe(el);
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  watchIds.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) tabObs.observe(el);
+  });
+}
+
+// ── Programme sub-tabs ──
+document.querySelectorAll('[data-prog]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var tab = this.dataset.prog;
+    document.querySelectorAll('.prog-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('[data-prog]').forEach(function(t) { t.classList.remove('active'); });
+    var panel = document.getElementById('prog-' + tab);
+    if (panel) panel.classList.add('active');
+    this.classList.add('active');
+  });
+});
+
+// ── School filter ──
+document.querySelectorAll('[data-filter]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var tier = this.dataset.filter;
+    document.querySelectorAll('[data-filter]').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    document.querySelectorAll('.school-card').forEach(function(c) {
+      c.style.display = (tier === 'all' || c.dataset.tier === tier) ? '' : 'none';
+    });
+  });
 });
 
 // ── Mobile nav ──
-function toggleMobile() { document.getElementById('sp-mobile-menu').classList.toggle('open'); }
-function closeMobile() { document.getElementById('sp-mobile-menu').classList.remove('open'); }
+var hamburger = document.getElementById('sp-hamburger-btn');
+var mobileMenu = document.getElementById('sp-mobile-menu');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', function() { mobileMenu.classList.toggle('open'); });
+}
+document.querySelectorAll('[data-close-mobile]').forEach(function(el) {
+  el.addEventListener('click', function() {
+    if (mobileMenu) mobileMenu.classList.remove('open');
+  });
+});
+
+// ── Scroll reveal ──
+if ('IntersectionObserver' in window) {
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    obs.observe(el);
+  });
+}
+
+})();
 </script>
 </body>
 </html>
