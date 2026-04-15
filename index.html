@@ -577,12 +577,6 @@ img { display: block; max-width: 100%; height: auto; }
 /* ─────────────────────────────────────────────────────────
    CMS NOTE  (visible only in standalone preview)
 ───────────────────────────────────────────────────────── */
-.cms-note {
-  background: #FFF9E6; border: 1px dashed #F5A000; border-radius: 4px;
-  padding: .6rem 1rem; margin: 0; font-size: .78rem; color: #7A4F00;
-  text-align: center;
-}
-
 /* ─────────────────────────────────────────────────────────
    RESPONSIVE
 ───────────────────────────────────────────────────────── */
@@ -612,14 +606,12 @@ img { display: block; max-width: 100%; height: auto; }
      This file contains only the page CONTENT blocks.
      The nav + footer here are for standalone preview only.
 ═══════════════════════════════════════════════════════════ -->
-<!--<p class="cms-note">⚠️ Preview mode — SP header and footer are rendered by the CMS in production. Content starts at the hero banner.</p>-->
-
 <!-- ── SP TOPBAR (CMS renders) ── -->
 <div class="sp-topbar">
   <div class="inner">
     <a href="https://www.sp.edu.sg" target="_blank">SP Website</a>
     <a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">SP FabLab</a>
-    <a href="/cdn-cgi/l/email-protection#6b0a1a19460d0a09070a0946181f0a0d0d2b181b450e0f1e45180c54181e09010e081f56260a000e4e595b0a054e595b2e051a1e021912">Contact Us</a>
+    <a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=Make%20an%20Enquiry">Contact Us</a>
   </div>
 </div>
 
@@ -672,7 +664,7 @@ img { display: block; max-width: 100%; height: auto; }
 ═══════════════════════════════════════════════════════════ -->
 
 <!-- ── HERO BANNER ── -->
-<div class="sp-hero">
+<div class="sp-hero" id="top">
   <div class="sp-hero-pattern"></div>
   <div class="sp-hero-overlay"></div>
   <div class="inner">
@@ -753,7 +745,7 @@ img { display: block; max-width: 100%; height: auto; }
   </div>
 
   <!-- What We Offer -->
-  <div class="sp-section sp-section-alt">
+  <div class="sp-section sp-section-alt" id="offer">
     <div class="inner">
       <div class="reveal" style="text-align:center;margin-bottom:1rem">
         <h2 class="sp-h2" style="display:inline-block">What We Offer</h2>
@@ -894,11 +886,11 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="model-grid">
           <div class="model-card"><div class="model-head m-a"><p class="model-label">Model A</p><p class="model-name">ApLM Workshop</p><p class="model-sub">3 Applied Learning Modules</p></div><div class="model-body"><div class="model-row"><span class="model-key">Modules</span><span>Design Cool Gadgets · Build Your Own IoT · I am a Technopreneur</span></div><div class="model-row"><span class="model-key">Duration</span><span>&gt;60 hrs (3 × 3-day blocks)</span></div><div class="model-row"><span class="model-key">Schedule</span><span>Mar, Jun, Sep 2027 (TBC)</span></div></div></div>
           <div class="model-card"><div class="model-head m-b"><p class="model-label">Model B</p><p class="model-name">Customised Workshop</p><p class="model-sub">Flexible 3-tier split</p></div><div class="model-body"><div class="model-row"><span class="model-key">Duration</span><span>60 hrs (e.g. 20+20+20 or 10+20+30)</span></div><div class="model-row"><span class="model-key">Schedule</span><span>Anytime</span></div><div class="model-row"><span class="model-key">Note</span><span>School-defined split across 3 tiers</span></div></div></div>
-          <div class="model-card"><div class="model-head m-c"><p class="model-label">Model C</p><p class="model-name">Whitespace Workshop</p><p class="model-sub">Curriculum-integrated</p></div><div class="model-body"><div class="model-row"><span class="model-key">Duration</span><span>60 hrs across timetable (2–4 hrs/week)</span></div><div class="model-row"><span class="model-key">Schedule</span><span>Jan → Nov</span></div><div class="model-row"><span class="model-key">Support</span><span>Student Agents support delivery</span></div></div></div>
+          <div class="model-card"><div class="model-head m-c"><p class="model-label">Model C</p><p class="model-name">Whitespace Workshop</p><p class="model-sub">Curriculum-integrated</p></div><div class="model-body"><div class="model-row"><span class="model-key">Duration</span><span>60 hrs across timetable (2–4 hrs/week)</span></div><div class="model-row"><span class="model-key">Schedule</span><span>Jan → Nov</span></div></div></div>
           <div class="model-card"><div class="model-head m-d"><p class="model-label">Model D</p><p class="model-name">Modular Workshop</p><p class="model-sub">CCA-friendly</p></div><div class="model-body"><div class="model-row"><span class="model-key">Duration</span><span>3 × 15 hrs + 1 × 15 hr Capstone = 60 hrs</span></div><div class="model-row"><span class="model-key">Schedule</span><span>Jan → Nov</span></div><div class="model-row"><span class="model-key">Ideal for</span><span>CCA-run maker education</span></div></div></div>
           <div class="model-card"><div class="model-head m-e"><p class="model-label">Model E</p><p class="model-name">Vacation Workshop</p><p class="model-sub">Holiday intensive</p></div><div class="model-body"><div class="model-row"><span class="model-key">Duration</span><span>60 hrs over 2 holiday weeks</span></div><div class="model-row"><span class="model-key">Schedule</span><span>Mar, Jun, Sep, Nov holidays</span></div><div class="model-row"><span class="model-key">Hours</span><span>Mon–Fri, 9am–4pm</span></div></div></div>
         </div>
-        <div class="sp-amber-box">✱ Students completing 60 hours may be eligible for SP elective module exemptions. <a href="/cdn-cgi/l/email-protection#24455556094245464845460957504542426457540a4140510a57431b5751464e4147501969454f41011614454a011614614a55514d565d">Reach out to us</a> to discuss minor customisation for any model.</div>
+        <div class="sp-amber-box">✱ Students completing 60 hours may be eligible for SP elective module exemptions. <a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=Make%20an%20Enquiry">Reach out to us</a> to discuss minor customisation for any model.</div>
       </div>
 
       <div class="prog-panel" id="prog-teachers">
@@ -920,7 +912,7 @@ img { display: block; max-width: 100%; height: auto; }
       <div class="reveal">
         <h2 class="gallery-text" style="font-size:1.5rem;font-weight:700;color:white;padding-bottom:.65rem;border-bottom:3px solid var(--sp-red);margin-bottom:1rem">Making Ideas Real</h2>
         <p class="gallery-text" style="font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.75">Hands-on projects, collaboration, and community at SP FabLab.</p>
-        <a href="/cdn-cgi/l/email-protection#e6879794cb8087848a8784cb9592878080a69596c8838293c89581d99593848c838592dbab878d83c3d4d68788c3d4d6a38897938f949f" class="btn-ghost-white">Request a Learning Journey →</a>
+        <a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=Make%20an%20Enquiry" class="btn-ghost-white">Request a Learning Journey →</a>
       </div>
       <div class="gallery-grid reveal reveal-d2">
         <div class="gallery-img gi-1"><div class="gallery-img-inner"></div><div class="gallery-caption">SP FabLab — Makerspace</div></div>
@@ -1034,7 +1026,7 @@ img { display: block; max-width: 100%; height: auto; }
             <span class="icon">✅</span>
             <div><h4>No ITQ or Tender Required</h4><p>Schools can engage SP FabLab directly as a G2G partner — for both the Learning Node and Learning Nexus tiers.</p></div>
           </div>
-          <div class="join-step"><div class="join-step-num">1</div><div class="join-step-text"><h4>Reach out to us</h4><p><a href="/cdn-cgi/l/email-protection#cdacbcbfe0abacafa1acafe0beb9acabab8dbebde3a8a9b8e3beaaf2beb8afa7a8aeb9f080aca6a8e8fffdaca3e8fffd88a3bcb8a4bfb4">Contact us</a> with a brief intro about your school's maker education journey.</p></div></div>
+          <div class="join-step"><div class="join-step-num">1</div><div class="join-step-text"><h4>Reach out to us</h4><p><a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=Make%20an%20Enquiry">Contact Us</a> with a brief intro about your school's maker education journey.</p></div></div>
           <div class="join-step"><div class="join-step-num">2</div><div class="join-step-text"><h4>Attend a Learning Journey</h4><p>Visit SP FabLab, meet the team, and see what a partnership looks like in practice.</p></div></div>
           <div class="join-step"><div class="join-step-num">3</div><div class="join-step-text"><h4>Join as a Learning Node</h4><p>Low commitment, high exposure. Annual and renewable.</p></div></div>
           <div class="join-step"><div class="join-step-num">4</div><div class="join-step-text"><h4>Progress to Learning Nexus</h4><p>Deepen your partnership and become a capability anchor in the network.</p></div></div>
@@ -1042,11 +1034,11 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="contact-card reveal reveal-d2">
           <h3>Contact SP FabLab</h3>
           <p>Happy to answer questions or arrange a visit.</p>
-          <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="/cdn-cgi/l/email-protection#1a7b6b68377c7b78767b7837696e7b7c7c5a696a347f7e6f34697d25696f78707f796e27577b717f3f282a7b743f282a5f746b6f736863"><span class="__cf_email__" data-cfemail="99f8e8ebb4fff8fbf5f8fbb4eaedf8ffffd9eae9b7fcfdecb7eafe">[email&#160;protected]</span></a></p></div></div>
+          <div class="c-row"><span class="c-icon">✉️</span><div><p class="c-label">Email</p><p class="c-val"><a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=Make%20an%20Enquiry">AQR-FabLab-Staff@sp.edu.sg</a></p></div></div>
           <div class="c-row"><span class="c-icon">🌐</span><div><p class="c-label">Website</p><p class="c-val"><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">sp.edu.sg/student-services/fablab</a></p></div></div>
           <div class="c-row"><span class="c-icon">📍</span><div><p class="c-label">Address</p><p class="c-val">Singapore Polytechnic, 500 Dover Road, Singapore 139651</p></div></div>
           <div class="c-row"><span class="c-icon">🕐</span><div><p class="c-label">Opening Hours</p><p class="c-val">Mon–Fri, 9am–5pm (Term &amp; Vacation)</p></div></div>
-          <a href="/cdn-cgi/l/email-protection#dbbaaaa9f6bdbab9b7bab9f6a8afbabdbd9ba8abf5bebfaef5a8bce4a8aeb9b1beb8afe696bab0befee9ebbab5fee9eb9eb5aaaeb2a9a2" class="btn-red-block">Send an Enquiry →</a>
+          <a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=Make%20an%20Enquiry" class="btn-red-block">Send an Enquiry →</a>
         </div>
       </div>
     </div>
@@ -1068,6 +1060,7 @@ img { display: block; max-width: 100%; height: auto; }
       <h5>On This Page</h5>
       <ul>
         <li><a href="#about" onclick="setTab('about')">About MakerConnect</a></li>
+        <li><a href="#offer" onclick="setTab('offer')">What We Offer</a></li>
         <li><a href="#network" onclick="setTab('network')">The Network</a></li>
         <li><a href="#programmes" onclick="setTab('programmes')">Programmes</a></li>
         <li><a href="#schools" onclick="setTab('schools')">Network Schools</a></li>
@@ -1080,7 +1073,7 @@ img { display: block; max-width: 100%; height: auto; }
         <li><a href="https://www.sp.edu.sg/student-services/fablab" target="_blank">SP FabLab Page</a></li>
         <li><a href="https://www.sp.edu.sg/pace" target="_blank">SP PACE Academy</a></li>
         <li><a href="https://www.sp.edu.sg" target="_blank">Singapore Polytechnic</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#731202015e1512111f12115e00071215153300035d1617065d00144c000611191610074e3e121816564143121d564143361d02061a010a"><span class="__cf_email__" data-cfemail="066777742b6067646a67642b757267606046757628636273287561">[email&#160;protected]</span></a></li>
+        <li><a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=Make%20an%20Enquiry">AQR-FabLab-Staff@sp.edu.sg</a></li>
       </ul>
     </div>
   </div>
@@ -1094,7 +1087,7 @@ img { display: block; max-width: 100%; height: auto; }
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── Sticky nav scroll ──
 const nav = document.getElementById('sp-nav');
 if (nav) {
@@ -1103,8 +1096,7 @@ if (nav) {
   });
 }
 
-// ── Tab switching (scrolls to section anchor) ──
-const tabSectionMap = { about: 'about', network: 'network', programmes: 'programmes', schools: 'schools', join: 'join' };
+// ── Tab switching ──
 function setTab(id) {
   document.querySelectorAll('.sp-tab').forEach(t => t.classList.remove('active'));
   const btn = document.querySelector(`.sp-tab[onclick="setTab('${id}')"]`);
@@ -1114,11 +1106,10 @@ function setTab(id) {
     const offset = el.getBoundingClientRect().top + window.scrollY - 96;
     window.scrollTo({ top: offset, behavior: 'smooth' });
   }
-  return false;
 }
 
 // ── Active tab on scroll ──
-const watchIds = ['about','network','programmes','schools','join'];
+const watchIds = ['about','offer','network','programmes','schools','join'];
 const tabObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -1138,10 +1129,9 @@ function switchProg(tab, btn) {
   btn.classList.add('active');
 }
 
-// ── School filter (for when Nexus is added) ──
+// ── School filter ──
 function filterSchools(tier, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  document.querySelectorAll('.filter-b
   document.querySelectorAll('.school-card').forEach(c => {
     c.style.display = (tier === 'all' || c.dataset.tier === tier) ? '' : 'none';
   });
@@ -1155,4 +1145,15 @@ document.querySelectorAll('.reveal').forEach(el => {
         e.target.style.opacity = '1';
         e.target.style.transform = 'none';
         obs.unobserve(e.target);
-   
+      }
+    });
+  }, { threshold: 0.08 });
+  obs.observe(el);
+});
+
+// ── Mobile nav ──
+function toggleMobile() { document.getElementById('sp-mobile-menu').classList.toggle('open'); }
+function closeMobile() { document.getElementById('sp-mobile-menu').classList.remove('open'); }
+</script>
+</body>
+</html>
