@@ -603,13 +603,9 @@ img { display: block; max-width: 100%; height: auto; }
 .mc-event-banner {
   background: var(--sp-white);
   border-bottom: 1px solid var(--sp-grey-200);
-  padding: 2.25rem 0;
+  padding: 2.5rem 0 2rem;
+  text-align: center;
 }
-.mc-event-banner .inner {
-  display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center;
-}
-.mc-logo-wrap { display: flex; align-items: center; justify-content: center; }
-.mc-logo-wrap img { height: 130px; width: auto; display: block; object-fit: contain; }
 .mc-event-label {
   font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
   color: var(--sp-red); margin-bottom: .4rem;
@@ -619,15 +615,12 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--sp-grey-900); margin-bottom: .25rem; line-height: 1.2;
 }
 .mc-event-date {
-  font-size: .9rem; color: var(--sp-grey-500); margin-bottom: 1.25rem;
+  font-size: .9rem; color: var(--sp-grey-500); margin-bottom: 1.4rem;
 }
-/* venue commented — uncomment when confirmed
-.mc-event-venue { font-size: .9rem; color: var(--sp-grey-500); margin-bottom: 1.25rem; }
-*/
 .mc-coming-pill {
   display: inline-flex; align-items: center; gap: .4rem;
   background: var(--sp-amber-bg); border: 1px solid rgba(245,160,0,.4);
-  border-radius: 20px; padding: .28rem .85rem; margin-bottom: 1.1rem;
+  border-radius: 20px; padding: .28rem .85rem; margin-bottom: 1rem;
   font-size: .78rem; font-weight: 700; color: #7A4F00;
 }
 .mc-coming-pill .mc-pulse {
@@ -635,16 +628,25 @@ img { display: block; max-width: 100%; height: auto; }
   animation: mc-pulse 1.4s infinite; flex-shrink: 0;
 }
 @keyframes mc-pulse { 0%,100%{opacity:1}50%{opacity:.3} }
-.mc-countdown { display: flex; gap: .65rem; flex-wrap: wrap; }
+.mc-countdown {
+  display: flex; justify-content: center; gap: .65rem;
+  flex-wrap: wrap; margin-bottom: 1.75rem;
+}
 .mc-cd-block {
   background: var(--sp-red); border-radius: var(--sp-r);
-  padding: .75rem 1.1rem; text-align: center; min-width: 62px;
+  padding: .75rem 1.25rem; text-align: center; min-width: 68px;
 }
 .mc-cd-num { font-size: 1.6rem; font-weight: 700; color: white; line-height: 1; display: block; }
 .mc-cd-label { font-size: .65rem; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .08em; margin-top: .2rem; display: block; }
 .mc-passed { font-size: .95rem; font-weight: 600; color: var(--sp-grey-500); padding: .5rem 0; display: none; }
-
-/* Bridge strip */
+.mc-logo-below {
+  display: flex; justify-content: center; margin-top: .25rem;
+}
+.mc-logo-below img {
+  height: 90px; width: auto; opacity: .45; filter: grayscale(20%);
+  transition: opacity .3s;
+}
+.mc-logo-below img:hover { opacity: .65; }
 .mc-bridge {
   background: var(--sp-grey-100);
   border-bottom: 3px solid var(--sp-red);
@@ -653,19 +655,8 @@ img { display: block; max-width: 100%; height: auto; }
 .mc-bridge .inner {
   font-size: .84rem; color: var(--sp-grey-700);
   text-align: center; font-style: italic;
-  max-width: var(--sp-max); margin: 0 auto; padding: 0 1.5rem;
 }
 .mc-bridge .inner strong { color: var(--sp-grey-900); font-style: normal; }
-
-/* Registration button — commented out, managed by MOE ETD
-.mc-register-btn { ... }
-*/
-
-@media (max-width: 600px) {
-  .mc-event-banner .inner { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
-  .mc-logo-wrap img { height: 90px; margin: 0 auto; }
-  .mc-countdown { justify-content: center; }
-  .mc-coming-pill { margin: 0 auto .85rem; }
 }
 </style>
 </head>
@@ -740,34 +731,32 @@ img { display: block; max-width: 100%; height: auto; }
 ═══════════════════════════════════════════════════════════════ -->
 <div class="mc-event-banner" id="makerconnect2026">
   <div class="inner">
-    <div class="mc-logo-wrap">
+    <div class="mc-coming-pill"><span class="mc-pulse"></span>Details coming soon</div>
+    <p class="mc-event-label">SP FabLab · Singapore Polytechnic</p>
+    <h2>MakerConnect 2026</h2>
+    <p class="mc-event-date">Annual Maker Education Event · 4 June 2026</p>
+    <!--<p class="mc-event-venue">SP Dover Road Campus</p>-->
+    <div class="mc-countdown" id="mc-countdown">
+      <div class="mc-cd-block"><span class="mc-cd-num" id="mc-d">--</span><span class="mc-cd-label">Days</span></div>
+      <div class="mc-cd-block"><span class="mc-cd-num" id="mc-h">--</span><span class="mc-cd-label">Hours</span></div>
+      <div class="mc-cd-block"><span class="mc-cd-num" id="mc-m">--</span><span class="mc-cd-label">Mins</span></div>
+      <div class="mc-cd-block"><span class="mc-cd-num" id="mc-s">--</span><span class="mc-cd-label">Secs</span></div>
+    </div>
+    <p class="mc-passed" id="mc-passed">🎉 Event has passed — see you next year!</p>
+    <div class="mc-logo-below">
       <img src="images/MC_Logo.png" alt="MakerConnect 2026"
            onerror="this.style.display='none'"/>
     </div>
-    <div>
-      <div class="mc-coming-pill"><span class="mc-pulse"></span>Details coming soon</div>
-      <p class="mc-event-label">SP FabLab · Singapore Polytechnic</p>
-      <h2>MakerConnect 2026</h2>
-      <p class="mc-event-date">Annual Maker Education Event · 4 June 2026</p>
-      <!--<p class="mc-event-venue">SP Dover Road Campus</p>-->
-      <div class="mc-countdown" id="mc-countdown">
-        <div class="mc-cd-block"><span class="mc-cd-num" id="mc-d">--</span><span class="mc-cd-label">Days</span></div>
-        <div class="mc-cd-block"><span class="mc-cd-num" id="mc-h">--</span><span class="mc-cd-label">Hours</span></div>
-        <div class="mc-cd-block"><span class="mc-cd-num" id="mc-m">--</span><span class="mc-cd-label">Mins</span></div>
-        <div class="mc-cd-block"><span class="mc-cd-num" id="mc-s">--</span><span class="mc-cd-label">Secs</span></div>
+    <!--
+      Registration managed by MOE ETD — uncomment for next year
+      <div style="margin-top:1.1rem">
+        <a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=MakerConnect%202026%20Registration" class="btn-red">Register Interest</a>
       </div>
-      <p class="mc-passed" id="mc-passed">🎉 Event has passed — see you next year!</p>
-      <!--
-        Registration managed by MOE ETD — uncomment for next year
-        <div style="margin-top:1.1rem">
-          <a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=MakerConnect%202026%20Registration" class="btn-red">Register Interest</a>
-        </div>
-      -->
-    </div>
+    -->
   </div>
 </div>
 
-<!-- Bridge: connects MakerConnect event identity to Maker Education Network service -->
+<!-- Bridge: connects MakerConnect event identity to Maker Education Network service --><!-- Bridge: connects MakerConnect event identity to Maker Education Network service -->
 <div class="mc-bridge">
   <div class="inner">
     Organised by <strong>Educational Technology Division</strong>, in collaboration with <strong>Singapore Polytechnic</strong>
@@ -909,6 +898,7 @@ img { display: block; max-width: 100%; height: auto; }
               <li>Extend an invitation to one fellow educator from another school</li>
               <li>Attend or be represented at MakerConnect annually</li>
             </ul>
+            <div class="tier-commit node"><strong>Commitment: Low</strong> — Exploratory, participation-based. Annual, renewable.</div>
           </div>
         </div>
         <!-- NEXUS -->
@@ -935,6 +925,7 @@ img { display: block; max-width: 100%; height: auto; }
               <li>Minimum 5–9 trained staff via SP CET programmes annually</li>
               <li>Makerspace readiness — existing or demonstrated intent</li>
             </ul>
+            <div class="tier-commit nexus"><strong>Commitment: High</strong> — School leadership-supported, teacher-led. Multi-year, reviewed annually.</div>
           </div>
         </div>
       </div>
