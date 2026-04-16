@@ -596,6 +596,77 @@ img { display: block; max-width: 100%; height: auto; }
   .gi-2 .gallery-img-inner { aspect-ratio: 4/3; }
   .sp-hero-stats { gap: 1.5rem; }
 }
+
+/* ─────────────────────────────────────────────────────────
+   MAKERCONNECT 2026 EVENT BANNER (Zone 1)
+───────────────────────────────────────────────────────── */
+.mc-event-banner {
+  background: var(--sp-white);
+  border-bottom: 1px solid var(--sp-grey-200);
+  padding: 2.25rem 0;
+}
+.mc-event-banner .inner {
+  display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center;
+}
+.mc-logo-wrap { display: flex; align-items: center; justify-content: center; }
+.mc-logo-wrap img { height: 130px; width: auto; display: block; object-fit: contain; }
+.mc-event-label {
+  font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--sp-red); margin-bottom: .4rem;
+}
+.mc-event-banner h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700;
+  color: var(--sp-grey-900); margin-bottom: .25rem; line-height: 1.2;
+}
+.mc-event-date {
+  font-size: .9rem; color: var(--sp-grey-500); margin-bottom: 1.25rem;
+}
+/* venue commented — uncomment when confirmed
+.mc-event-venue { font-size: .9rem; color: var(--sp-grey-500); margin-bottom: 1.25rem; }
+*/
+.mc-coming-pill {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--sp-amber-bg); border: 1px solid rgba(245,160,0,.4);
+  border-radius: 20px; padding: .28rem .85rem; margin-bottom: 1.1rem;
+  font-size: .78rem; font-weight: 700; color: #7A4F00;
+}
+.mc-coming-pill .mc-pulse {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--sp-amber);
+  animation: mc-pulse 1.4s infinite; flex-shrink: 0;
+}
+@keyframes mc-pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+.mc-countdown { display: flex; gap: .65rem; flex-wrap: wrap; }
+.mc-cd-block {
+  background: var(--sp-red); border-radius: var(--sp-r);
+  padding: .75rem 1.1rem; text-align: center; min-width: 62px;
+}
+.mc-cd-num { font-size: 1.6rem; font-weight: 700; color: white; line-height: 1; display: block; }
+.mc-cd-label { font-size: .65rem; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .08em; margin-top: .2rem; display: block; }
+.mc-passed { font-size: .95rem; font-weight: 600; color: var(--sp-grey-500); padding: .5rem 0; display: none; }
+
+/* Bridge strip */
+.mc-bridge {
+  background: var(--sp-grey-100);
+  border-bottom: 3px solid var(--sp-red);
+  padding: .7rem 0;
+}
+.mc-bridge .inner {
+  font-size: .84rem; color: var(--sp-grey-700);
+  text-align: center; font-style: italic;
+  max-width: var(--sp-max); margin: 0 auto; padding: 0 1.5rem;
+}
+.mc-bridge .inner strong { color: var(--sp-grey-900); font-style: normal; }
+
+/* Registration button — commented out, managed by MOE ETD
+.mc-register-btn { ... }
+*/
+
+@media (max-width: 600px) {
+  .mc-event-banner .inner { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+  .mc-logo-wrap img { height: 90px; margin: 0 auto; }
+  .mc-countdown { justify-content: center; }
+  .mc-coming-pill { margin: 0 auto .85rem; }
+}
 </style>
 </head>
 <body>
@@ -663,6 +734,48 @@ img { display: block; max-width: 100%; height: auto; }
      PAGE CONTENT — provide these blocks to InfinityEdge
 ═══════════════════════════════════════════════════════════ -->
 
+<!-- ════════════════ MAKERCONNECT 2026 EVENT BANNER ════════════════
+     Zone 1 — time-bound event section
+     Zone 2 — SP FabLab Maker Education Network (below) is evergreen
+═══════════════════════════════════════════════════════════════ -->
+<div class="mc-event-banner" id="makerconnect2026">
+  <div class="inner">
+    <div class="mc-logo-wrap">
+      <img src="images/MC_Logo.png" alt="MakerConnect 2026"
+           onerror="this.style.display='none'"/>
+    </div>
+    <div>
+      <div class="mc-coming-pill"><span class="mc-pulse"></span>Details coming soon</div>
+      <p class="mc-event-label">SP FabLab · Singapore Polytechnic</p>
+      <h2>MakerConnect 2026</h2>
+      <p class="mc-event-date">Annual Maker Education Event · 4 June 2026</p>
+      <!--<p class="mc-event-venue">SP Dover Road Campus</p>-->
+      <div class="mc-countdown" id="mc-countdown">
+        <div class="mc-cd-block"><span class="mc-cd-num" id="mc-d">--</span><span class="mc-cd-label">Days</span></div>
+        <div class="mc-cd-block"><span class="mc-cd-num" id="mc-h">--</span><span class="mc-cd-label">Hours</span></div>
+        <div class="mc-cd-block"><span class="mc-cd-num" id="mc-m">--</span><span class="mc-cd-label">Mins</span></div>
+        <div class="mc-cd-block"><span class="mc-cd-num" id="mc-s">--</span><span class="mc-cd-label">Secs</span></div>
+      </div>
+      <p class="mc-passed" id="mc-passed">🎉 Event has passed — see you next year!</p>
+      <!--
+        Registration managed by MOE ETD — uncomment for next year
+        <div style="margin-top:1.1rem">
+          <a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=MakerConnect%202026%20Registration" class="btn-red">Register Interest</a>
+        </div>
+      -->
+    </div>
+  </div>
+</div>
+
+<!-- Bridge: connects MakerConnect event identity to Maker Education Network service -->
+<div class="mc-bridge">
+  <div class="inner">
+    Organised by <strong>Educational Technology Division</strong>, in collaboration with <strong>Singapore Polytechnic</strong>
+  </div>
+</div>
+
+
+
 <!-- ── HERO BANNER ── -->
 <div class="sp-hero" id="top">
   <div class="sp-hero-pattern"></div>
@@ -712,20 +825,15 @@ img { display: block; max-width: 100%; height: auto; }
 <div id="pane-about">
   <div class="sp-section" id="about">
     <div class="inner">
+      <!-- About MakerConnect content coming soon — details to be confirmed
       <div class="about-grid">
-        <div class="reveal">
-          <h2 class="sp-h2">About MakerConnect</h2>
-          <p class="sp-p">MakerConnect is SP FabLab's annual event and home of the <strong>SP FabLab Maker Education Network</strong> — helping Singapore schools explore, adopt, and sustain maker education.</p>
-          <p class="sp-p">In a world shaped by AI, the ability to design, build, and solve real problems becomes the essential human skill. SP FabLab gives schools a supported, practical pathway to develop exactly those competencies.</p>
-        <div class="reveal reveal-d2">
-          <div class="about-img">
-            <div class="about-img-badge">
-              <strong>2026</strong>
-              <span>Annual Event</span>
-            </div>
-          </div>
-          <p style="font-size:.8rem;color:var(--sp-grey-500);margin-top:.6rem;text-align:center">Singapore Polytechnic · Dover Road Campus</p>
-        </div>
+        ...
+      </div>
+      -->
+      <div style="text-align:center;padding:3rem 0 2rem">
+        <div class="mc-coming-pill" style="margin:0 auto 1rem"><span class="mc-pulse"></span>Content coming soon</div>
+        <h2 class="sp-h2" style="display:inline-block;margin-bottom:1rem">About MakerConnect</h2>
+        <p class="sp-p" style="max-width:540px;margin:0 auto">More details about MakerConnect 2026 and the SP FabLab Maker Education Network will be available here soon. In the meantime, <a href="mailto:AQR-FabLab-Staff@sp.edu.sg?subject=Make%20an%20Enquiry">reach out to us</a> for any enquiries.</p>
       </div>
     </div>
   </div>
@@ -1024,11 +1132,11 @@ img { display: block; max-width: 100%; height: auto; }
           </div>
         </div>
 
-       <!-- SCHOOL 2: Pei Hwa Secondary School — Learning Node — image: images/school-peihwa.jpg (800×450px) -->
-        <div class="school-card nexus" data-tier="node">
+        <!-- SCHOOL 11: Pei Hwa Secondary School — image: images/school-peihwa.jpg (800×450px) -->
+        <div class="school-card node" data-tier="node">
           <div class="school-card-img"><img src="images/school-peihwa.jpg" alt="Pei Hwa Secondary School" onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1e3d,#1A2E5A)';this.style.display='none'"/></div>
           <div class="school-card-body">
-            <span class="school-badge badge-nexus">⬡ Learning Node</span>
+            <span class="school-badge badge-node">⬡ Learning Node</span>
             <p class="school-name">Pei Hwa Secondary School</p>
             <p class="school-desc">Maker Monday workshop integrated A.I. Teachable Machine with cardboard puppetry, enabling interactive storytelling through simple machine learning. </p>
           </div>
@@ -1212,6 +1320,33 @@ if ('IntersectionObserver' in window) {
 }
 
 })();
+
+
+// ── MakerConnect 2026 Countdown ──
+(function() {
+  var target = new Date('2026-06-04T09:00:00+08:00');
+  var cdEl   = document.getElementById('mc-countdown');
+  var passed = document.getElementById('mc-passed');
+  function tick() {
+    var diff = target - new Date();
+    if (diff <= 0) {
+      if (cdEl) cdEl.style.display = 'none';
+      if (passed) passed.style.display = 'block';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor(diff % 86400000 / 3600000);
+    var m = Math.floor(diff % 3600000  / 60000);
+    var s = Math.floor(diff % 60000    / 1000);
+    document.getElementById('mc-d').textContent = d;
+    document.getElementById('mc-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('mc-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('mc-s').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
 </script>
 </body>
 </html>
